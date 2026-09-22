@@ -728,3 +728,200 @@ body {
 }
 
 .about-info p { margin-bottom: 10px; font-size: 0.88rem; }
+
+/* ==========================================================================
+   ИНЖЕНЕРНАЯ GIT-КОНСОЛЬ (DEV-TERMINAL)
+   ========================================================================== */
+.dev-terminal {
+    background: #05080c;
+    border: 1px solid #1f2937;
+    border-radius: 8px;
+    margin: 12px 0 16px 0;
+    overflow: hidden;
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 0.78rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-bar {
+    background: #0d131a;
+    border-bottom: 1px solid #1f2937;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.term-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.term-dot.red { background: #f85149; }
+.term-dot.yellow { background: #d29922; }
+.term-dot.green { background: #2ea043; }
+
+.term-title {
+    color: #8b949e;
+    font-size: 0.72rem;
+    margin-left: 8px;
+}
+
+.terminal-body {
+    padding: 8px 12px;
+    max-height: 90px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.term-line {
+    color: #c9d1d9;
+    line-height: 1.4;
+    word-break: break-all;
+}
+.term-line.info { color: #58a6ff; }
+.term-line.success { color: #3fb950; }
+.term-line.warn { color: #d29922; }
+
+/* ==========================================================================
+   ФИНАНСОВЫЙ BI-ДАШБОРД (P&L STATEMENT)
+   ========================================================================== */
+.bi-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin: 12px 0 18px 0;
+}
+
+.bi-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+}
+
+.bi-card-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.bi-card-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.pnl-table-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pnl-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.pnl-table th {
+    background: #111620;
+    color: var(--color-cyan);
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+}
+
+.pnl-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #e6edf3;
+}
+
+.pnl-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.pnl-table tr.total-row td {
+    background: rgba(56, 139, 253, 0.08);
+    font-weight: bold;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   DEVOPS И СЕРВЕРНАЯ СТОЙКА (SERVER RACK)
+   ========================================================================== */
+.server-rack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.rack-unit {
+    background: #0d1219;
+    border: 1px solid #212936;
+    border-left: 4px solid #1f6feb;
+    border-radius: 6px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.rack-unit-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rack-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #f0f6fc;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rack-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3fb950;
+    box-shadow: 0 0 8px #2ea043;
+    display: inline-block;
+}
+
+.rack-metrics-row {
+    display: flex;
+    gap: 16px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.rack-bar-bg {
+    width: 100%;
+    height: 6px;
+    background: #161f2c;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 3px;
+}
+
+.rack-bar-fill {
+    height: 100%;
+    background: #1f6feb;
+    border-radius: 3px;
+    transition: width 0.4s ease;
+}
+

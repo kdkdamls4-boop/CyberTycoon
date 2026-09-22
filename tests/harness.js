@@ -422,8 +422,17 @@ function populateStandardDOM(doc) {
     // Tabs
     doc.getElementById('tab-btn-rd');
     doc.getElementById('tab-btn-office');
+    doc.getElementById('tab-btn-bi');
+    doc.getElementById('tab-btn-devops');
     doc.getElementById('tab-content-rd');
     doc.getElementById('tab-content-office');
+    doc.getElementById('tab-content-bi');
+    doc.getElementById('tab-content-devops');
+    doc.getElementById('dev-terminal');
+    doc.getElementById('terminal-feed');
+    doc.getElementById('bi-summary-cards');
+    doc.getElementById('pnl-statement-container');
+    doc.getElementById('server-rack-display');
 
     // Projects Panel
     const clickBtn = doc.getElementById('start-click-work');

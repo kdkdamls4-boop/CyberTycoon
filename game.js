@@ -623,28 +623,282 @@ window.fixProjectBug = function(projectId) {
 // 5.1 УПРАВЛЕНИЕ ВКЛАДКАМИ И ШТАБ-КВАРТИРОЙ
 // ============================================================================
 
+let currentActiveCentralTab = 'rd';
+
 /**
- * Переключение между вкладками: R&D (Проекты) и Штаб-квартира (Офис)
+ * Переключение между 4 вкладками центральной панели:
+ * - 'rd': Центр исследований и разработок (R&D проекты)
+ * - 'office': Штаб-квартира и уровни офиса
+ * - 'bi': Финансовый BI-дашборд и отчет P&L (Profit & Loss)
+ * - 'devops': Инфраструктура DevOps и серверная стойка
  */
 window.switchCentralTab = function(tabName) {
-    const rdTab = document.getElementById('tab-content-rd');
-    const officeTab = document.getElementById('tab-content-office');
-    const btnRd = document.getElementById('tab-btn-rd');
-    const btnOffice = document.getElementById('tab-btn-office');
+    currentActiveCentralTab = tabName;
+    const allTabs = ['rd', 'office', 'bi', 'devops'];
 
-    if (tabName === 'rd') {
-        rdTab.classList.remove('hidden');
-        officeTab.classList.add('hidden');
-        btnRd.classList.add('active-tab');
-        btnOffice.classList.remove('active-tab');
-    } else {
-        rdTab.classList.add('hidden');
-        officeTab.classList.remove('hidden');
-        btnRd.classList.remove('active-tab');
-        btnOffice.classList.add('active-tab');
+    allTabs.forEach(t => {
+        const content = document.getElementById(`tab-content-${t}`);
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (content) {
+            if (t === tabName) {
+                content.classList.remove('hidden');
+            } else {
+                content.classList.add('hidden');
+            }
+        }
+        if (btn) {
+            if (t === tabName) {
+                btn.classList.add('active-tab');
+            } else {
+                btn.classList.remove('active-tab');
+            }
+        }
+    });
+
+    if (tabName === 'office') {
         renderOfficeTab();
+    } else if (tabName === 'bi') {
+        renderBiTab();
+    } else if (tabName === 'devops') {
+        renderDevopsTab();
     }
     playTone(500, 0.05);
+};
+
+/**
+ * Логирование коммитов в терминал разработчика
+ */
+function logGitCommit(actionMessage) {
+    const feed = document.getElementById('terminal-feed');
+    if (!feed) return;
+
+    const hashes = ['a7f2c1', 'b4e9d0', 'f3c8a2', '91d5e4', 'c6b2a8', '70e1f9'];
+    const randomHash = hashes[Math.floor(Math.random() * hashes.length)];
+    const line = document.createElement('div');
+    line.className = 'term-line success';
+    line.innerText = `[git:main] ${randomHash} - ${actionMessage}`;
+    feed.prepend(line);
+
+    while (feed.children.length > 6) {
+        feed.removeChild(feed.lastChild);
+    }
+}
+
+/**
+ * Отрисовка финансового BI-дашборда и отчета P&L
+ */
+function renderBiTab() {
+    const summaryContainer = document.getElementById('bi-summary-cards');
+    const pnlContainer = document.getElementById('pnl-statement-container');
+    if (!summaryContainer || !pnlContainer) return;
+
+    // 1. Расчет финансовых показателей
+    const passiveMultiplier = gameState.upgrades.includes('server') ? 1.20 : 1.0;
+    let grossRevenue = 0;
+    for (const p of gameState.projects) {
+        if (p.completed) {
+            let inc = p.passiveIncome || 0;
+            if (p.hasBug) inc = Math.round(inc * 0.5);
+            grossRevenue += Math.round(inc * passiveMultiplier);
+        }
+    }
+
+    let salaries = 0;
+    for (const emp of Object.values(gameState.employees)) {
+        salaries += (emp.count || 0) * (emp.salary || 0);
+    }
+
+    const serverDiscount = gameState.upgrades.includes('server') ? 0.70 : 1.0;
+    let serverCosts = 0;
+    for (const p of gameState.projects) {
+        if (p.completed && p.serverCost) {
+            serverCosts += Math.round(p.serverCost * serverDiscount);
+        }
+    }
+
+    const netProfit = grossRevenue - salaries - serverCosts;
+    const marginPct = grossRevenue > 0 ? Math.round((netProfit / grossRevenue) * 100) : 0;
+    const burnRate = netProfit < 0 ? Math.abs(netProfit) : 0;
+    const runwayDays = burnRate > 0 ? Math.max(0, Math.floor(gameState.money / burnRate)) : '∞ (профицит)';
+
+    // 2. Карточки финансовой сводки
+    summaryContainer.innerHTML = `
+        <div class="bi-card">
+            <div class="bi-card-label">Выручка / день</div>
+            <div class="bi-card-value text-green">+$${grossRevenue.toLocaleString()}</div>
+        </div>
+        <div class="bi-card">
+            <div class="bi-card-label">Расходы (OPEX)</div>
+            <div class="bi-card-value text-red">-$${(salaries + serverCosts).toLocaleString()}</div>
+        </div>
+        <div class="bi-card">
+            <div class="bi-card-label">Маржинальность</div>
+            <div class="bi-card-value ${marginPct >= 0 ? 'text-green' : 'text-red'}">${marginPct}%</div>
+        </div>
+        <div class="bi-card">
+            <div class="bi-card-label">Runway (Запас)</div>
+            <div class="bi-card-value text-cyan">${typeof runwayDays === 'number' ? runwayDays + ' дн.' : runwayDays}</div>
+        </div>
+    `;
+
+    // 3. Бухгалтерская таблица P&L
+    pnlContainer.innerHTML = `
+        <table class="pnl-table">
+            <thead>
+                <tr>
+                    <th>Статья финансового учета</th>
+                    <th>Категория</th>
+                    <th style="text-align: right;">Сумма (USD/сутки)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Пассивный доход от сданных продуктов</td>
+                    <td><span class="badge" style="background:#238636;">Выручка</span></td>
+                    <td style="text-align: right; color:#3fb950;">+$${grossRevenue.toLocaleString()}</td>
+                </tr>
+                <tr>
+                    <td>Фонд оплаты труда программистов (ФОТ)</td>
+                    <td><span class="badge" style="background:#da3633;">OPEX</span></td>
+                    <td style="text-align: right; color:#f85149;">-$${salaries.toLocaleString()}</td>
+                </tr>
+                <tr>
+                    <td>Облачные сервера и хостинг инфраструктуры</td>
+                    <td><span class="badge" style="background:#da3633;">OPEX</span></td>
+                    <td style="text-align: right; color:#f85149;">-$${serverCosts.toLocaleString()}</td>
+                </tr>
+                <tr class="total-row">
+                    <td>ИТОГОВОЕ САЛЬДО (EBITDA / Чистая прибыль)</td>
+                    <td><span class="badge" style="background:#1f6feb;">Net Total</span></td>
+                    <td style="text-align: right; color:${netProfit >= 0 ? '#3fb950' : '#f85149'};">
+                        ${netProfit >= 0 ? '+' : '-'}$${Math.abs(netProfit).toLocaleString()} / день
+                    </td>
+                </tr>
+                <tr>
+                    <td>Капитал на расчетном счете компании</td>
+                    <td><span class="badge" style="background:#8957e5;">Баланс</span></td>
+                    <td style="text-align: right; font-weight: bold;">$${gameState.money.toLocaleString()}</td>
+                </tr>
+            </tbody>
+        </table>
+    `;
+}
+
+/**
+ * Экспорт финансового отчета в формате CSV
+ */
+window.exportFinancialReportCSV = function() {
+    const net = calculateNetDailyProfit();
+    let salaries = 0;
+    for (const emp of Object.values(gameState.employees)) salaries += (emp.count || 0) * (emp.salary || 0);
+    const serverDiscount = gameState.upgrades.includes('server') ? 0.70 : 1.0;
+    let serverCosts = 0;
+    for (const p of gameState.projects) if (p.completed && p.serverCost) serverCosts += Math.round(p.serverCost * serverDiscount);
+    let gross = 0;
+    const passiveMultiplier = gameState.upgrades.includes('server') ? 1.20 : 1.0;
+    for (const p of gameState.projects) if (p.completed) gross += Math.round((p.passiveIncome || 0) * (p.hasBug ? 0.5 : 1.0) * passiveMultiplier);
+
+    const rows = [
+        ["Статья учета", "Сумма USD", "Категория", "День симуляции"],
+        ["Валовая выручка", gross, "Доходы", gameState.day],
+        ["ФОТ зарплаты", -salaries, "OPEX Расходы", gameState.day],
+        ["Серверный хостинг", -serverCosts, "OPEX Расходы", gameState.day],
+        ["Чистая прибыль в сутки", net, "Сальдо", gameState.day],
+        ["Остаток на балансе компании", gameState.money, "Активы", gameState.day],
+        ["Корпоративная репутация", gameState.reputation, "Нематериальные активы", gameState.day]
+    ];
+
+    const csvContent = "data:text/csv;charset=utf-8,\uFEFF" + rows.map(e => e.join(",")).join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `Financial_Report_Day_${gameState.day}_${gameState.companyName || 'CyberTycoon'}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    addLog(`Финансовый отчет успешно экспортирован в CSV (День ${gameState.day})`, 'success');
+    playTone(600, 0.08);
+};
+
+/**
+ * Отрисовка серверной стойки и инфраструктурных метрик DevOps
+ */
+function renderDevopsTab() {
+    const rackContainer = document.getElementById('server-rack-display');
+    if (!rackContainer) return;
+
+    const totalEmployees = getTotalEmployees();
+    const completedCount = gameState.projects.filter(p => p.completed).length;
+
+    // Динамический расчет нагрузки
+    const cpuLoad = Math.min(98, Math.max(12, 18 + totalEmployees * 5 + completedCount * 2));
+    const ramLoad = Math.min(95, Math.max(20, 25 + completedCount * 4 + (gameState.upgrades.includes('server') ? -10 : 5)));
+    const dbIops = 1200 + completedCount * 450;
+    const traffic = (0.8 + completedCount * 0.4).toFixed(1);
+
+    rackContainer.innerHTML = `
+        <div class="rack-unit" style="border-left-color: #38bdf8;">
+            <div class="rack-unit-top">
+                <span class="rack-title"><span class="rack-led"></span> U1: Nginx API Gateway & Reverse Proxy</span>
+                <span class="badge" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">ONLINE (SLA 99.98%)</span>
+            </div>
+            <div class="rack-metrics-row">
+                <span>Пинг: <strong>14 ms</strong></span>
+                <span>Трафик: <strong>${traffic} Гб/с</strong></span>
+                <span>SSL: <strong>TLS 1.3 Valid</strong></span>
+            </div>
+        </div>
+
+        <div class="rack-unit" style="border-left-color: #2ea043;">
+            <div class="rack-unit-top">
+                <span class="rack-title"><span class="rack-led"></span> U2: Distributed Neural Compute & Workers</span>
+                <span style="font-size: 0.8rem; color: #8b949e;">CPU: ${cpuLoad}%</span>
+            </div>
+            <div class="rack-bar-bg">
+                <div class="rack-bar-fill" style="width: ${cpuLoad}%; background: ${cpuLoad > 80 ? '#f85149' : '#2ea043'};"></div>
+            </div>
+            <div class="rack-metrics-row">
+                <span>Потоки вычислений: <strong>${totalEmployees * 8 + 16} Threads</strong></span>
+                <span>Worker Nodes: <strong>${Math.max(2, Math.floor(completedCount / 2) + 2)} шт.</strong></span>
+            </div>
+        </div>
+
+        <div class="rack-unit" style="border-left-color: #e3b341;">
+            <div class="rack-unit-top">
+                <span class="rack-title"><span class="rack-led"></span> U3: PostgreSQL High-Load Database Cluster</span>
+                <span style="font-size: 0.8rem; color: #8b949e;">RAM: ${ramLoad}%</span>
+            </div>
+            <div class="rack-bar-bg">
+                <div class="rack-bar-fill" style="width: ${ramLoad}%; background: ${ramLoad > 80 ? '#f85149' : '#e3b341'};"></div>
+            </div>
+            <div class="rack-metrics-row">
+                <span>IOPS: <strong>${dbIops} req/s</strong></span>
+                <span>Пул соединений: <strong>${totalEmployees * 5 + 20}/500</strong></span>
+                <span>Репликация: <strong>Синхронная (0.1ms)</strong></span>
+            </div>
+        </div>
+
+        <div class="rack-unit" style="border-left-color: #a371f7;">
+            <div class="rack-unit-top">
+                <span class="rack-title"><span class="rack-led"></span> U4: Redis Micro-Cache & Global CDN Node</span>
+                <span class="badge" style="background: rgba(163, 113, 247, 0.2); color: #a371f7;">HIT RATE 96.4%</span>
+            </div>
+            <div class="rack-metrics-row">
+                <span>Кэшировано ключей: <strong>${(completedCount * 1240 + 520).toLocaleString()}</strong></span>
+                <span>DDoS Shield: <strong>Cloudflare Enterprise</strong></span>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Оптимизация кэша и перезагрузка кластера серверов
+ */
+window.optimizeDevOpsServers = function() {
+    addLog(`[DevOps] Кластер серверов оптимизирован: Redis-кэш сброшен, сетевая задержка снижена до 11ms!`, 'success');
+    renderDevopsTab();
+    playTone(750, 0.1);
 };
 
 /**
@@ -1054,6 +1308,12 @@ function updateUI(overrideNetProfit = null, overrideTotalEmp = null) {
             }
         }
     }
+
+    // 13. Обновление BI-вкладки или DevOps-вкладки, если они активны
+    if (typeof currentActiveCentralTab !== 'undefined') {
+        if (currentActiveCentralTab === 'bi') renderBiTab();
+        else if (currentActiveCentralTab === 'devops') renderDevopsTab();
+    }
 }
 if (typeof window !== 'undefined') {
     window.updateUI = updateUI;
@@ -1332,6 +1592,7 @@ function initInGameEventListeners() {
         gameState.money += reward;
         updateUI();
         addFeedMessage(`Вы написали кастомный скрипт и заработали $${reward}.`);
+        logGitCommit(`feat(sprint): commit dev iteration (+$${reward})`);
         playTone(493, 0.05);
     });
 
@@ -1545,6 +1806,11 @@ if (typeof window !== 'undefined') {
     window.fixProjectBug = fixProjectBug;
     window.isProjectUnlocked = isProjectUnlocked;
     window.isProjectCompleted = isProjectCompleted;
+    window.renderBiTab = renderBiTab;
+    window.exportFinancialReportCSV = exportFinancialReportCSV;
+    window.renderDevopsTab = renderDevopsTab;
+    window.optimizeDevOpsServers = optimizeDevOpsServers;
+    window.logGitCommit = logGitCommit;
 }
 if (typeof global !== 'undefined') {
     global.isProjectUnlocked = isProjectUnlocked;
@@ -1572,6 +1838,11 @@ if (typeof module !== 'undefined' && module.exports) {
         fixProjectBug,
         isProjectUnlocked,
         isProjectCompleted,
+        renderBiTab,
+        exportFinancialReportCSV,
+        renderDevopsTab,
+        optimizeDevOpsServers,
+        logGitCommit,
         playTone
     };
 }

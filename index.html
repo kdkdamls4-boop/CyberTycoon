@@ -241,10 +241,16 @@
                 <!-- Панель переключения вкладок -->
                 <div class="tab-nav">
                     <button class="tab-btn active-tab" id="tab-btn-rd" onclick="switchCentralTab('rd')">
-                        📋 Центр R&D (Проекты)
+                        📋 Центр R&D
                     </button>
                     <button class="tab-btn" id="tab-btn-office" onclick="switchCentralTab('office')">
-                        🏢 Штаб-квартира и Апгрейды
+                        🏢 Штаб-квартира
+                    </button>
+                    <button class="tab-btn" id="tab-btn-bi" onclick="switchCentralTab('bi')">
+                        📊 Финансовый BI (P&L)
+                    </button>
+                    <button class="tab-btn" id="tab-btn-devops" onclick="switchCentralTab('devops')">
+                        🖥️ DevOps & Серверы
                     </button>
                 </div>
 
@@ -256,6 +262,19 @@
                     </div>
                     <p class="panel-desc">Разрабатывайте новые решения. Завершенные проекты дают постоянный пассивный доход каждый день.</p>
                     
+                    <!-- Инженерная Git-консоль разработчика -->
+                    <div class="dev-terminal" id="dev-terminal">
+                        <div class="terminal-bar">
+                            <span class="term-dot red"></span>
+                            <span class="term-dot yellow"></span>
+                            <span class="term-dot green"></span>
+                            <span class="term-title">bash: dev-sprint & git commit stream</span>
+                        </div>
+                        <div class="terminal-body" id="terminal-feed">
+                            <div class="term-line info">[CI/CD] Pipeline initialized. Git branch: main (ready)</div>
+                        </div>
+                    </div>
+
                     <div class="active-projects" id="active-projects-list">
                         <!-- Список проектов текущей отрасли -->
                     </div>
@@ -281,6 +300,39 @@
 
                     <div class="upgrades-grid" id="upgrades-grid">
                         <!-- Карточки оборудования заполняются через JS -->
+                    </div>
+                </div>
+
+                <!-- ВКЛАДКА 3: Финансовый BI-Дашборд (P&L, Cash Flow) -->
+                <div id="tab-content-bi" class="hidden">
+                    <div class="panel-header">
+                        <h2>Финансовый Отчет P&L (Profit & Loss)</h2>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn btn-secondary btn-sm" id="export-csv-btn" onclick="exportFinancialReportCSV()">📥 Экспорт CSV</button>
+                            <button class="btn btn-primary btn-sm" onclick="window.print()">🖨️ Печать PDF</button>
+                        </div>
+                    </div>
+                    <p class="panel-desc">Сводная финансовая отчетность предприятия, структура расходов (OPEX/CAPEX) и оценка запаса прочности.</p>
+                    
+                    <div class="bi-metrics-grid" id="bi-summary-cards">
+                        <!-- Динамические карточки метрик: Margin %, Runway, EBITDA -->
+                    </div>
+
+                    <div class="pnl-table-wrapper" id="pnl-statement-container">
+                        <!-- Бухгалтерская таблица P&L -->
+                    </div>
+                </div>
+
+                <!-- ВКЛАДКА 4: DevOps и Серверная Инфраструктура -->
+                <div id="tab-content-devops" class="hidden">
+                    <div class="panel-header">
+                        <h2>Инфраструктурный кластер и Серверная стойка</h2>
+                        <button class="btn btn-success btn-sm" id="devops-optimize-btn" onclick="optimizeDevOpsServers()">⚡ Оптимизировать кэш</button>
+                    </div>
+                    <p class="panel-desc">Мониторинг состояния серверных узлов, распределение нагрузки и SLA надежности сервисов.</p>
+
+                    <div class="server-rack" id="server-rack-display">
+                        <!-- 4 серверных юнита со шкалами нагрузки -->
                     </div>
                 </div>
 
