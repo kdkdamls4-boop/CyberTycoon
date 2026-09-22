@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пояснительная записка дипломного проекта — CyberTycoon Pro</title>
+    <style>
+        @media print {
+            body { background: #fff !important; color: #000 !important; font-size: 12pt; padding: 0; }
+            .no-print { display: none !important; }
+            .document-sheet { border: none !important; box-shadow: none !important; padding: 0 !important; max-width: 100% !important; }
+            .page-break { page-break-before: always; }
+        }
+        body {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14pt;
+            line-height: 1.5;
+            background: #f4f6f9;
+            color: #222;
+            padding: 40px 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .document-sheet {
+            max-width: 880px;
+            width: 100%;
+            background: #fff;
+            padding: 60px 70px;
+            border: 1px solid #d0d7de;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            border-radius: 4px;
+        }
+        h1, h2, h3, h4 {
+            font-family: "Times New Roman", Times, serif;
+            color: #111;
+            font-weight: bold;
+        }
+        h1 { font-size: 18pt; text-align: center; margin-bottom: 20px; }
+        h2 { font-size: 16pt; text-align: center; margin-top: 35px; border-bottom: 1px solid #ccc; padding-bottom: 8px; }
+        h3 { font-size: 14pt; margin-top: 25px; }
+        p { text-indent: 1.25cm; margin: 10px 0; text-align: justify; }
+        .no-indent { text-indent: 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 12pt;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th { background: #f0f0f0; }
+        ul, ol { margin: 10px 0 10px 1.25cm; }
+        li { margin-bottom: 6px; }
+        code, pre {
+            font-family: Consolas, monospace;
+            font-size: 11pt;
+            background: #f6f8fa;
+        }
+        pre {
+            padding: 12px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .btn-print {
+            background: #0969da;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            float: right;
+        }
+        .formula-box {
+            background: #fafbfc;
+            border: 1px solid #e1e4e8;
+            padding: 12px 20px;
+            margin: 15px 0;
+            text-align: center;
+            font-style: italic;
+            font-size: 13pt;
+        }
+    </style>
+</head>
+<body>
+
+<div class="document-sheet">
+    <button class="btn-print no-print" onclick="window.print()">Печать документа (PDF)</button>
+    
+    <div style="text-align: center; margin-bottom: 40px;">
+        <p class="no-indent" style="font-size: 12pt; text-transform: uppercase;">МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ</p>
+        <p class="no-indent" style="font-size: 13pt; font-weight: bold; margin-top: 20px;">ВЫПУСКНАЯ КВАЛИФИКАЦИОННАЯ РАБОТА (ДИПЛОМНЫЙ ПРОЕКТ)</p>
+        <h1 style="margin-top: 30px;">«Разработка интеллектуального веб-симулятора технологической корпорации с модулем рыночной аналитики»</h1>
+        <p class="no-indent" style="margin-top: 40px; text-align: right;"><strong>Выполнил:</strong> [Ваше Ф.И.О.]<br><strong>Специальность:</strong> 09.02.07 Информационные системы и программирование<br><strong>Руководитель:</strong> [Ф.И.О. руководителя]</p>
+    </div>
+
+    <hr style="border: none; border-top: 2px solid #000; margin: 40px 0;">
+
+    <h2>АННОТАЦИЯ</h2>
+    <p>Дипломный проект посвящен проектированию, алгоритмизации и практической реализации интерактивного веб-симулятора технологической корпорации «CyberTycoon Pro». В работе исследованы экономические и алгоритмические механизмы моделирования IT-бизнеса, включая фонд оплаты труда (ФОТ), управление серверной инфраструктурой, технический долг, управление моральным состоянием трудового коллектива и рыночную аналитику.</p>
+    <p>Разработанный программный комплекс функционирует на основе современных веб-стандартов (HTML5, CSS3 Grid/Flexbox, ES6+ JavaScript, Canvas API, Web Audio API) без сторонних npm-зависимостей и тяжеловесных фреймворков. Приложение включает: дискретный настраиваемый игровой цикл (Game Loop), трехуровневую отраслевую систему с 30 проектами, разделенными на 4 технологических тира с деревом пререквизитов (Tech Tree), стохастическую модель фондовой биржи на базе процесса с возвратом к среднему (Ornstein-Uhlenbeck) с новостным триггерным анализом (Market Sentiment), а также адаптивную систему контроля рисков и инцидентов.</p>
+
+    <h2>СОДЕРЖАНИЕ</h2>
+    <ol>
+        <li>ВВЕДЕНИЕ</li>
+        <li>ГЛАВА 1. АНАЛИТИЧЕСКАЯ И ТЕОРЕТИЧЕСКАЯ ЧАСТЬ
+            <ul>
+                <li>1.1. Анализ предметной области и актуальность моделирования IT-бизнеса</li>
+                <li>1.2. Обзор и сравнительный анализ существующих программных аналогов</li>
+                <li>1.3. Обоснование выбора стека веб-технологий и архитектурных паттернов</li>
+            </ul>
+        </li>
+        <li>ГЛАВА 2. ПРОЕКТИРОВАНИЕ И АРХИТЕКТУРА СИСТЕМЫ
+            <ul>
+                <li>2.1. Требования к программному продукту (функциональные и нефункциональные)</li>
+                <li>2.2. Архитектура данных и управление состоянием (Single Source of Truth)</li>
+                <li>2.3. Математическая модель игрового цикла, морали команды и финансового баланса</li>
+                <li>2.4. Алгоритм симуляции фондовой биржи и новостных триггеров</li>
+                <li>2.5. Дерево технологий (Tech Tree) и модель технического долга</li>
+            </ul>
+        </li>
+        <li>ГЛАВА 3. ПРАКТИЧЕСКАЯ РЕАЛИЗАЦИЯ И ТЕСТИРОВАНИЕ
+            <ul>
+                <li>3.1. Структура проекта и реализация ключевых модулей</li>
+                <li>3.2. Разработка пользовательского интерфейса (UI/UX) и визуализации данных</li>
+                <li>3.3. Тестирование программного обеспечения и верификация алгоритмов</li>
+                <li>3.4. Руководство пользователя</li>
+            </ul>
+        </li>
+        <li>ЗАКЛЮЧЕНИЕ</li>
+        <li>СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ</li>
+    </ol>
+
+    <h2>ВВЕДЕНИЕ</h2>
+    <p><strong>Актуальность темы исследования.</strong> В условиях цифровизации экономики успешность выпускника в сфере информационных технологий определяется не только технической квалификацией (hard skills), но и развитым экономическим мышлением. Инженер-программист, тимлид или технический директор должны четко понимать структуру себестоимости разработки ПО: фонд оплаты труда, издержки на содержание серверных кластеров, риски накопления технического долга и влияние рыночной конъюнктуры на капитализацию бизнеса.</p>
+    <p>Традиционное академическое преподавание экономических дисциплин страдает от абстрактности теоретических моделей. Наиболее эффективным современным подходом является <strong>геймификация</strong> — интеграция интерактивных игровых механик в образовательный процесс. Разработка обучающего веб-симулятора технологической компании позволяет смоделировать реальные сценарии управления компанией в контролируемой среде.</p>
+    <p><strong>Цель работы:</strong> Проектирование, математическое моделирование и программная реализация автономного веб-симулятора IT-корпорации с динамической моделью затрат, морали сотрудников, каталогом 30 проектов и модулем биржевой аналитики.</p>
+
+    <h2>ГЛАВА 1. АНАЛИТИЧЕСКАЯ И ТЕОРЕТИЧЕСКАЯ ЧАСТЬ</h2>
+    <p>IT-предприятие характеризуется высокой долей расходов на квалифицированный персонал (ФОТ составляет до 70–85% операционного бюджета), постоянными расходами на серверные кластеры, необходимостью управления техническим долгом и рисками психологического выгорания сотрудников.</p>
+
+    <table>
+        <tr>
+            <th>Критерий сравнения</th>
+            <th>Game Dev Tycoon</th>
+            <th>Startup Company</th>
+            <th>CyberTycoon Pro</th>
+        </tr>
+        <tr>
+            <td>Запуск в веб-браузере без установки</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td><strong>Да (100% Web)</strong></td>
+        </tr>
+        <tr>
+            <td>Модуль биржи с анализом новостей</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td><strong>Да (Market Sentiment)</strong></td>
+        </tr>
+        <tr>
+            <td>Дерево технологий из 4 уровней</td>
+            <td>Частично</td>
+            <td>Да</td>
+            <td><strong>Да (30 проектов, 4 тира)</strong></td>
+        </tr>
+        <tr>
+            <td>Моделирование морали и выгорания</td>
+            <td>Нет</td>
+            <td>Частично</td>
+            <td><strong>Да (0–100%, штрафы/бонусы)</strong></td>
+        </tr>
+        <tr>
+            <td>Инфраструктурные серверные расходы</td>
+            <td>Нет</td>
+            <td>Да</td>
+            <td><strong>Да (с учетом серверных апгрейдов)</strong></td>
+        </tr>
+        <tr>
+            <td>Отсутствие внешних npm-зависимостей</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td><strong>Да (Pure Vanilla JS)</strong></td>
+        </tr>
+    </table>
+
+    <h2>ГЛАВА 2. ПРОЕКТИРОВАНИЕ И АРХИТЕКТУРА СИСТЕМЫ</h2>
+
+    <h3>2.2. Архитектура данных (Single Source of Truth)</h3>
+    <p>Все параметры приложения сгруппированы в централизованном объекте <code>gameState</code>:</p>
+    <pre><code>let gameState = {
+    companyName: "NeuroCorp",
+    direction: "ai",
+    money: 6000,
+    day: 1,
+    reputation: 50,
+    officeTier: 1,
+    morale: 80,
+    upgrades: [],
+    stocks: { price: 100, floatPrice: 100.0, history: [100], userOwned: 0, marketTrend: 0 },
+    employees: { junior: {...}, middle: {...}, senior: {...}, marketer: {...} },
+    projects: [...]
+};</code></pre>
+
+    <h3>2.3. Математическая модель игрового цикла и финансового сальдо</h3>
+    <p>Игровой цикл инициируется каждые Δt секунд. На каждом шаге рассчитываются показатели:</p>
+    
+    <div class="formula-box">
+        P<sub>net</sub> = ∑ (I<sub>pass, j</sub> · K<sub>bug, j</sub> · K<sub>server</sub>) − ∑ (C<sub>i</sub> · S<sub>i</sub>) − ∑ (C<sub>server, j</sub> · K<sub>discount</sub>)
+    </div>
+    <p>где <em>K<sub>bug</sub> = 0.5</em> при активном инциденте, <em>K<sub>server</sub> = 1.20</em> при покупке собственного GPU-кластера, <em>K<sub>discount</sub> = 0.70</em> (скидка 30% на хостинг при наличии серверного апгрейда).</p>
+
+    <div class="formula-box">
+        M<sub>t</sub> = clamp(M<sub>t-1</sub> + ΔM<sub>debt</sub> + ΔM<sub>amenities</sub>, 0, 100)
+    </div>
+    <p>где <em>ΔM<sub>debt</sub> = −3</em> при задержках зарплат (отрицательный баланс), а <em>ΔM<sub>amenities</sub></em> дает суточный прирост за счет офисных удобств (+0.05 за кофемашину, +0.08 за эргономичные кресла).</p>
+
+    <div class="formula-box">
+        K<sub>morale</sub> = 1.20 при M<sub>t</sub> ≥ 90; &nbsp;&nbsp; 0.50 при M<sub>t</sub> &lt; 40; &nbsp;&nbsp; 1.00 в остальных случаях
+    </div>
+    <p>Коэффициент <em>K<sub>morale</sub></em> напрямую масштабирует суммарную производительность труда программистов.</p>
+
+    <h3>2.4. Алгоритм фондовой биржи (Ornstein-Uhlenbeck Process)</h3>
+    <p>Котировки акций моделируются стохастическим дифференциальным уравнением в дискретной форме с возвратом к среднему значению $100 и квадратичным отталкиванием от границ диапазона [$15; $600]:</p>
+    <div class="formula-box">
+        P<sub>t</sub> = P<sub>t-1</sub> · (1 + δ + T<sub>news</sub> + 0.012 · (100 − P<sub>t-1</sub>) / 100) + F<sub>repel</sub>(P<sub>t-1</sub>)
+    </div>
+
+    <h3>2.5. Дерево технологий и модель технического долга</h3>
+    <p>Каталог включает 30 проектов (по 10 для направлений «Нейросети», «GameDev» и «Кибербезопасность»), распределенных по 4 тирам. Доступность проекта определяется предикатом уровня офиса, корпоративной репутации и сдачи проекта-предшественника. Завершенные проекты имеют 1.5% суточный риск возникновения критического бага, который устраняется вручную или автоматически Senior-тимлидами (25% шанс в сутки).</p>
+
+    <h2>ГЛАВА 3. ПРАКТИЧЕСКАЯ РЕАЛИЗАЦИЯ И ТЕСТИРОВАНИЕ</h2>
+    <p>Разработан комплексный автоматизированный тестовый стенд на базе Node.js:</p>
+    <ul>
+        <li><strong>E2E Test Suite (Tiers 1–4):</strong> 100 тестов сквозного игрового процесса (Успешно: 100/100, 100.0%).</li>
+        <li><strong>Adversarial Canvas Suite (M1):</strong> 20 стресс-тестов рендеринга графиков без NaN (Успешно: 20/20, 100.0%).</li>
+        <li><strong>Adversarial UI Reactivity Suite (M2):</strong> 13 тестов кадровых инвариантов и 1000 шагов случайного фаззинга (3108 проверок, Успешно: 13/13, 100.0%).</li>
+        <li><strong>Adversarial Stock Engine Suite:</strong> 31 тест стабильности биржевых котировок на 1000 тиков (Успешно: 31/31, 100.0%).</li>
+    </ul>
+
+    <h2>ЗАКЛЮЧЕНИЕ</h2>
+    <p>Все задачи дипломного проекта выполнены в полном объеме. Создан законченный, масштабируемый и отказоустойчивый веб-симулятор технологической корпорации, готовый к практическому применению в учебном процессе.</p>
+
+    <h2>СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ</h2>
+    <ol>
+        <li>Флэнаган, Д. JavaScript. Подробное руководство / Д. Флэнаган. — 7-е изд. — СПб.: Питер, 2021. — 704 с.</li>
+        <li>Чекко, А. Графика на JavaScript. Работа с HTML5 Canvas / А. Чекко. — М.: ДМК Пресс, 2019. — 280 с.</li>
+        <li>Гамма, Э. Приемы объектно-ориентированного проектирования / Э. Гамма и др. — СПб.: Питер, 2020. — 366 с.</li>
+        <li>Документация MDN Web Docs: Canvas API. — URL: https://developer.mozilla.org/ru/docs/Web/API/Canvas_API</li>
+        <li>Документация MDN Web Docs: Web Audio API. — URL: https://developer.mozilla.org/ru/docs/Web/API/Web_Audio_API</li>
+        <li>Клеппман, М. Высоконагруженные приложения / М. Клеппман. — СПб.: Питер, 2022. — 640 с.</li>
+        <li>ГОСТ 7.32-2017. Отчет о научно-исследовательской работе. — М.: Стандартинформ, 2018.</li>
+    </ol>
+</div>
+
+</body>
+</html>

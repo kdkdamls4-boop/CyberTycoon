@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайды презентации диплома — CyberTycoon Pro</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #090d13;
+            color: #f0f6fc;
+            padding: 30px 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-top {
+            max-width: 960px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .print-btn {
+            background: #1f6feb;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .print-btn:hover { background: #388bfd; }
+        .slides-container {
+            max-width: 960px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .slide-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 14px;
+            padding: 28px 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+        .slide-number {
+            position: absolute;
+            top: 24px;
+            right: 28px;
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #58a6ff;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+        h2 {
+            color: #58a6ff;
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 14px;
+            border-bottom: 1px solid #21262d;
+            padding-bottom: 10px;
+            max-width: 80%;
+        }
+        ul {
+            margin: 10px 0 20px 20px;
+            padding: 0;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        li { margin-bottom: 6px; }
+        .speech-box {
+            background: rgba(56, 139, 253, 0.08);
+            border-left: 4px solid #58a6ff;
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            color: #e6edf3;
+            line-height: 1.5;
+        }
+        .speech-box strong { color: #79c0ff; }
+        @media print {
+            body { background: #fff; color: #000; padding: 0; }
+            .header-top { display: none; }
+            .slide-card {
+                border: 1px solid #ccc;
+                box-shadow: none;
+                background: #fff;
+                color: #000;
+                page-break-after: always;
+                margin-bottom: 30px;
+            }
+            .slide-number { background: #eee; color: #000; border-color: #ccc; }
+            h2 { color: #0969da; border-bottom-color: #ddd; }
+            ul { color: #222; }
+            .speech-box { background: #f6f8fa; border-left-color: #0969da; color: #222; }
+            .speech-box strong { color: #0969da; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-top">
+    <div>
+        <h1 style="margin: 0; font-size: 1.6rem; color: #58a6ff;">📊 Слайды презентации диплома (12 слайдов)</h1>
+        <p style="margin: 4px 0 0 0; color: #8b949e; font-size: 0.95rem;">CyberTycoon Pro — Симулятор технологической корпорации</p>
+    </div>
+    <button class="print-btn" onclick="window.print()">Печать / Экспорт в PDF</button>
+</div>
+
+<div class="slides-container">
+
+    <!-- Слайд 1 -->
+    <div class="slide-card">
+        <span class="slide-number">СЛАЙД 1</span>
+        <h2>Разработка интеллектуального веб-симулятора технологической корпорации</h2>
+        <ul>
+            <li><strong>Выпускная квалификационная работа (дипломный проект)</strong></li>
+            <li><strong>Специальность:</strong> 09.02.07 Информационные системы и программирование</li>
+            <li><strong>Выполнил:</strong> [Ваше Ф.И.О.]</li>
+            <li><strong>Руководитель:</strong> [Ф.И.О. руководителя, должность]</li>
+            <li><strong>Город и год:</strong> 2026</li>
+        </ul>
+        <div class="speech-box">
+            <strong>🗣️ Что говорить:</strong><br>
+            «Здравствуйте, уважаемые члены государственной экзаменационной комиссии! Вашему вниманию представляется дипломный проект на тему: "Разработка интеллектуального веб-симулятора технологической корпорации с модулем рыночной аналитики CyberTycoon Pro".»
+        </div>
+    </div>
+
+    <!-- Слайд 2 -->
+    <div class="slide-card">
+        <span class="slide-number">СЛАЙД 2</span>
+        <h2>Актуальность и проблематика моделирования IT-бизнеса</h2>
+        <ul>
+            <li><strong>Проблема:</strong> Сложность освоения экономических механизмов IT-бизнеса (балансировка ФОТ, операционные серверные издержки, технический долг и риски выгорания специалистов).</li>
+            <li><strong>Решение:</strong> Интерактивное моделирование бизнес-процессов с использованием методов геймификации.</li>
+            <li><strong>Практическая ценность:</strong> Формирование системного бизнес-мышления у будущих инженеров-разработчиков и тимлидов.</li>
+        </ul>
+        <div class="speech-box">
+            <strong>🗣️ Что говорить:</strong><br>
+            «В современных реалиях программисту недостаточно просто писать код. Необходимо понимать структуру затрат: фонд оплаты труда, постоянные издержки на серверный хостинг, влияние технического долга и психологический климат команды. Наш симулятор позволяет моделировать эти процессы в реальном времени без финансовых рисков.»
+        </div>
+    </div>
+
+    <!-- Слайд 3 -->
+    <div class="slide-card">
+        <span class="slide-number">СЛАЙД 3</span>
+        <h2>Цель и ключевые задачи дипломной работы</h2>
+        <ul>
+            <li><strong>Цель:</strong> Проектирование, алгоритмизация и программная реализация автономного веб-симулятора IT-корпорации с деревом из 30 проектов, стохастической биржей и модулем кадровой морали.</li>
+            <li><strong>Задачи проекта:</strong>
+                <ol style="margin-top: 6px; padding-left: 20px;">
+                    <li>Разработать архитектуру данных на базе паттерна Single Source of Truth.</li>
+                    <li>Построить дискретный игровой цикл с расчетом чистой прибыли (с учетом серверов и багов).</li>
+                    <li>Реализовать дерево технологий из 30 проектов в 4 прогрессивных тирах.</li>
+                    <li>Спроектировать биржевой процесс Орнштейна — Уленбека с новостным анализом.</li>
+                    <li>Внедрить механику морали сотрудников, рисков сбоев и Senior-автотриажа.</li>
+                    <li>Провести автоматизированное E2E- и стресс-тестирование системы.</li>
+                </ol>
+            </li>
+        </ul>
+        <div class="speech-box">
+            <strong>🗣️ Что говорить:</strong><br>
+            «Целью работы стало создание масштабируемого симулятора с открытой архитектурой. Для достижения цели были решены задачи проектирования игрового цикла, каталога из 30 наукоемких проектов, модуля биржевой торговли и механизмов предотвращения кризисных явлений.»
+        </div>
+    </div>
+
+    <!-- Слайд 4 -->
+    <div class="slide-card">
+        <span class="slide-number">СЛАЙД 4</span>
+        <h2>Стек технологий и архитектура системы</h2>
+        <ul>
+            <li><strong>Pure Vanilla Stack:</strong> HTML5, CSS3 Grid/Flexbox, ES6+ JavaScript.</li>
+            <li><strong>Автономность:</strong> 0% внешних npm-библиотек; мгновенный запуск прямо из файла <code>index.html</code>.</li>
+            <li><strong>HTML5 Canvas API:</strong> Аппаратная отрисовка векторного биржевого графика со скоростью 60 FPS.</li>
+            <li><strong>Web Audio API:</strong> Программный частотный синтез звуковых эффектов (без тяжелых аудиофайлов).</li>
+            <li><strong>Архитектура:</strong> Централизованный объект <code>gameState</code> (Single Source of Truth).</li>
+        </ul>
+        <div class="speech-box">
+            <strong>🗣️ Что говорить:</strong><br>
+            «При выборе технологий мы сознательно отказались от тяжелых фреймворков в пользу нативного JavaScript и Canvas API. Это гарантировало мгновенный запуск прямо из файла, отсутствие проблем с зависимостями и высочайшую производительность.»
+        </div>
+    </div>
+
+    <!-- Слайд 5 -->
+    <div class="slide-card">
+        <span class="slide-number">СЛАЙД 5</span>
+        <h2>Игровой цикл и формула финансового сальдо</h2>
+        <ul>
+            <li><strong>Игровой цикл (Game Loop):</strong> Дискретные тики со скоростями <code>0.5x</code> (5 сек/день), <code>1x</code> (3 сек/день) и <code>Пауза</code>.</li>
+            <li><strong>Формула чистой суточной прибыли:</strong><br>
+                <code>Чистая прибыль = Сумма(Доход × K_bug × K_server) − Сумма(Зарплаты) − Сумма(Хостинг × K_discount)</code>
+            </li>
+            <li><strong>Операционные расходы:</strong>
+                <ul style="margin-top: 6px;">
+                    <li>Завершенные продукты требуют ежедневной оплаты серверных мощностей.</li>
+                    <li>Активный баг урезает суточный доход проекта на 50%.</li>
+                    <li>Серверный кластер дает +20% к доходу и 30% скидку на хостинг.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="speech-box">
+            <strong>🗣️ Что говорить:</strong><br>
+            «Игровой цикл пересчитывает финансовое состояние компании каждые сутки. Доход формируется не линейно: серверы требуют постоянных отчислений на хостинг, а технические сбои урезают выручку до тех пор, пока баг не будет устранен.»
+        </div>
+    </div>
+
+    <!-- Слайд 6 -->
+    <div class="slide-card">
+        <span class="slide-number">СЛАЙД 6</span>
+        <h2>Дерево технологий: 30 проектов в 4 тирах</h2>
+        <ul>
+            <li><strong>3 отраслевых профиля:</strong> «IT и Нейросети», «GameDev Студия», «Кибербезопасность» (по 10 проектов в каждом).</li>
+            <li><strong>4 уровня зрелости (Tiers):</strong>
+                <ul style="margin-top: 6px;">
+                    <li><strong>Tier 1 (Startup/MVP):</strong> Быстрый старт в Гараже (Chatbot MVP, 2D-игра, Сканер портов).</li>
+                    <li><strong>Tier 2 (Commercial B2B):</strong> Заказные сервисы в Коворкинге (Smart CRM, Мобильная 3D-игра, DLP).</li>
+                    <li><strong>Tier 3 (Enterprise):</strong> Облачные кластеры в Бизнес-центре (Computer Vision, MMORPG, SOC Center).</li>
+                    <li><strong>Tier 4 (Global Platform):</strong> Мировые экосистемы в Небоскребе (AGI Engine, VR Metaverse, Квантовая криптография).</li>
+                </ul>
+            </li>
+            <li><strong>Валидация пререквизитов (<code>isProjectUnlocked</code>):</strong> Проверка уровня офиса, репутации и завершения предшественников.</li>
+        </ul>
+        <div class="speech-box">
+            <strong>🗣️ Что говорить:</strong><br>
+            «Каталог содержит 30 уникальных проектов. Реализовано полноценное дерево технологий: крупные проекты 3 и 4 уровней заблокированы до тех пор, пока компания не расширит офис, не заработает достаточную репутацию и не завершит базовые разработки.»
+        </div>
+    </div>
+
+    <!-- Слайд 7 -->
+    <div class="slide-card">
+        <span class="slide-number">СЛАЙД 7</span>
+        <h2>Интеллектуальный модуль биржи и новостей</h2>
+        <ul>
+            <li><strong>Процесс Орнштейна — Уленбека:</strong>
+                <ul style="margin-top: 6px;">
+                    <li>Непрерывное вещественное число <code>floatPrice</code> без потери точности при округлении.</li>
+                    <li>Тяготение к равновесной цене $100 с коэффициентом возврата.</li>
+                    <li>Квадратичное мягкое отталкивание от экстремумов ($15 и $600) — исключает застревание котировок.</li>
+                </ul>
+            </li>
+            <li><strong>Market Sentiment Analysis:</strong> Реакция котировок на бычьи (рост) и медвежьи (спад) новостные триггеры.</li>
+            <li><strong>Canvas-рендеринг:</strong> Защита от деления на ноль при плоской истории цен и автомасштабирование сетки.</li>
+        </ul>
+        <div class="speech-box">
+            <strong>🗣️ Что говорить:</strong><br>
+            «Биржевой модуль построен на математической модели с возвратом к среднему значению. Котировки реалистично реагируют на новости рынка, а специальный алгоритм отталкивания предотвращает искусственное застревание цены на крайних границах.»
+        </div>
+    </div>
+
+    <!-- Слайд 8 -->
+    <div class="slide-card">
+        <span class="slide-number">СЛАЙД 8</span>
+        <h2>Модель настроения коллектива (Morale Engine)</h2>
+        <ul>
+            <li><strong>Динамика морали (0–100%):</strong>
+                <ul style="margin-top: 6px;">
+                    <li>Падение на 3% в день при отрицательном балансе (задержка зарплат).</li>
+                    <li>Рост за счет офисных удобств (+0.05 кофемашина, +0.08 эргономичные кресла).</li>
+                </ul>
+            </li>
+            <li><strong>Влияние на скорость разработки:</strong>
+                <ul style="margin-top: 6px;">
+                    <li>🟢 <strong>Мораль ≥ 90%:</strong> Бонус воодушевления (+20% к скорости кодинга).</li>
+                    <li>🔴 <strong>Мораль &lt; 40%:</strong> Кризис выгорания (Burnout) — падение скорости на 50%.</li>
+                    <li>🟡 <strong>Мораль 40–89%:</strong> Штатная производительность (100%).</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="speech-box">
+            <strong>🗣️ Что говорить:</strong><br>
+            «В симулятор заложена психологическая модель команды. Если у компании дефицит бюджета и задерживаются зарплаты, мораль падает, и разработчики впадают в выгорание, замедляя работу вдвое. Обустройство комфортного офиса поднимает мораль и увеличивает темп релизов на 20%.»
+        </div>
+    </div>
+
+    <!-- Слайд 9 -->
+    <div class="slide-card">
+        <span class="slide-number">СЛАЙД 9</span>
+        <h2>Технический долг и операционные риски</h2>
+        <ul>
+            <li><strong>Вероятность сбоя:</strong> Завершенные проекты ежедневно имеют 1.5% шанс возникновения критического инцидента.</li>
+            <li><strong>Экономический ущерб:</strong> Активный дефект урезает суточный доход проекта на 50%.</li>
+            <li><strong>Механизмы устранения:</strong>
+                <ul style="margin-top: 6px;">
+                    <li><strong>Ручной Hotfix:</strong> Платный вызов экстренной команды устранения дефекта.</li>
+                    <li><strong>Senior Auto-Triage:</strong> Каждый Senior-тимлид ежедневно имеет 25% шанс автоматически устранить баг без затрат игрока.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="speech-box">
+            <strong>🗣️ Что говорить:</strong><br>
+            «Мы смоделировали концепцию технического долга. Продукты в проде могут ломаться. Игрок может оплачивать экстренные хотфиксы вручную, либо нанимать дорогих Senior-инженеров, которые проводят автоматический триаж и чинят баги бесплатно.»
+        </div>
+    </div>
+
+    <!-- Слайд 10 -->
+    <div class="slide-card">
+        <span class="slide-number">СЛАЙД 10</span>
+        <h2>Масштабирование инфраструктуры и офиса</h2>
+        <ul>
+            <li><strong>4 ступени развития офиса:</strong>
+                <ul style="margin-top: 6px;">
+                    <li><strong>Гараж:</strong> до 4 рабочих мест (стартовый этап).</li>
+                    <li><strong>Коворкинг:</strong> до 10 мест (+15% к скорости разработки).</li>
+                    <li><strong>Бизнес-центр:</strong> до 25 мест (+35% к скорости разработки).</li>
+                    <li><strong>Небоскреб CyberTower:</strong> безлимитный штат (+60% к скорости разработки).</li>
+                </ul>
+            </li>
+            <li><strong>Техническое оснащение:</strong> Оптоволоконный интернет (+100$ за клик), серверный GPU-кластер, биометрический контроль.</li>
+        </ul>
+        <div class="speech-box">
+            <strong>🗣️ Что говорить:</strong><br>
+            «Развитие компании напрямую увязано с офисной инфраструктурой. При найме сотрудников действует строгий контроль лимита рабочих мест, стимулирующий своевременный переезд в более просторные помещения.»
+        </div>
+    </div>
+
+    <!-- Слайд 11 -->
+    <div class="slide-card">
+        <span class="slide-number">СЛАЙД 11</span>
+        <h2>Комплексное тестирование и верификация</h2>
+        <ul>
+            <li><strong>E2E Test Suite (Tiers 1–4):</strong> 100/100 тестов успешно (100.0% Pass Rate).</li>
+            <li><strong>Adversarial Canvas Suite (M1):</strong> 20/20 тестов рендеринга графиков без NaN (100.0%).</li>
+            <li><strong>Adversarial UI Reactivity Suite (M2):</strong> 13/13 тестов кадровых инвариантов и 1000 шагов фаззинга (3108 проверок, 100.0%).</li>
+            <li><strong>Adversarial Stock Engine Suite:</strong> 31/31 эмпирический тест на 1000 тиков симуляции (100.0%).</li>
+        </ul>
+        <div class="speech-box">
+            <strong>🗣️ Что говорить:</strong><br>
+            «Надежность программного комплекса подтверждена строгим автоматизированным тестированием. Разработано 4 тестовых пакета, суммарно выполнивших тысячи строгих проверок математических инвариантов и граничных условий со 100% успехом.»
+        </div>
+    </div>
+
+    <!-- Слайд 12 -->
+    <div class="slide-card">
+        <span class="slide-number">СЛАЙД 12</span>
+        <h2>Заключение и практическая значимость</h2>
+        <ul>
+            <li><strong>Результаты:</strong> Создан законченный, отказоустойчивый веб-симулятор технологической корпорации с высокой образовательной ценностью.</li>
+            <li><strong>Математическая строгость:</strong> Реализованы модели бюджетирования, сервера, выгорания персонала и стохастической биржи.</li>
+            <li><strong>Глубина геймплея:</strong> 30 проектов в 4 тирах обеспечивают вариативность стратегий развития.</li>
+            <li><strong>Спасибо за внимание! Готов ответить на ваши вопросы.</strong></li>
+        </ul>
+        <div class="speech-box">
+            <strong>🗣️ Что говорить:</strong><br>
+            «Дипломный проект выполнен в полном объеме. Создан законченный, отказоустойчивый и глубокий симулятор IT-бизнеса с высоким образовательным потенциалом. Благодарю за внимание и с удовольствием отвечу на все вопросы комиссии!»
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

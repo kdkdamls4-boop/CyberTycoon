@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шпаргалка к защите диплома — CyberTycoon Pro</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            background: #0d1117;
+            color: #c9d1d9;
+            padding: 30px 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 960px;
+            width: 100%;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 14px;
+            padding: 36px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        h1, h2, h3, h4 { color: #58a6ff; }
+        h1 { border-bottom: 2px solid #30363d; padding-bottom: 12px; margin-top: 0; }
+        h2 { border-bottom: 1px solid #21262d; padding-bottom: 8px; margin-top: 32px; }
+        blockquote {
+            background: rgba(56, 139, 253, 0.1);
+            border-left: 4px solid #58a6ff;
+            margin: 16px 0;
+            padding: 12px 18px;
+            border-radius: 0 8px 8px 0;
+            color: #e6edf3;
+            font-style: italic;
+        }
+        pre, code {
+            font-family: Consolas, Monaco, "Andale Mono", monospace;
+            background: #090d13;
+            border-radius: 6px;
+        }
+        code { padding: 2px 6px; color: #79c0ff; font-size: 0.9em; }
+        pre {
+            padding: 14px;
+            border: 1px solid #30363d;
+            overflow-x: auto;
+            color: #f0f6fc;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        th, td {
+            border: 1px solid #30363d;
+            padding: 12px;
+            text-align: left;
+        }
+        th { background: #21262d; color: #58a6ff; }
+        tr:nth-child(even) { background: rgba(255, 255, 255, 0.02); }
+        .highlight { color: #3fb950; font-weight: bold; }
+        .badge {
+            display: inline-block;
+            background: #238636;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .badge-tier {
+            background: #1f6feb;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .print-btn {
+            background: #238636;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            float: right;
+        }
+        .print-btn:hover { background: #2ea043; }
+        @media print {
+            body { background: white; color: black; }
+            .container { border: none; box-shadow: none; max-width: 100%; padding: 0; }
+            .print-btn { display: none; }
+            pre, code { background: #f6f8fa; color: #24292f; border: 1px solid #d0d7de; }
+            th { background: #f6f8fa; color: #0969da; }
+            th, td { border: 1px solid #d0d7de; }
+            blockquote { background: #f6f8fa; border-left-color: #0969da; color: #24292f; }
+            h1, h2, h3 { color: #0969da; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <button class="print-btn" onclick="window.print()">Распечатать / В PDF</button>
+    <h1>🎓 Шпаргалка для защиты диплома: «CyberTycoon Pro»</h1>
+    
+    <blockquote>
+        <strong>Главное правило на защите:</strong> Комиссия оценивает не заученные наизусть строки кода, а <strong>понимание архитектуры и логики</strong>. Если вы понимаете, <em>куда текут данные, как работает игровой цикл и почему сделано именно так</em>, вам гарантирована высшая оценка («Отлично» / 5).
+    </blockquote>
+
+    <h2>1. Речь на защиту (Выучить или прочитать по карточке на 2.5–3 минуты)</h2>
+    <blockquote>
+        «Здравствуйте, уважаемые члены государственной экзаменационной комиссии!<br><br>
+        Тема моей дипломной работы: <strong>«Разработка интеллектуального веб-симулятора технологической корпорации с модулем рыночной аналитики (CyberTycoon Pro)»</strong>.<br><br>
+        <strong>Актуальность проекта:</strong> Обучение основам экономики и управления IT-предприятием в интерактивной форме. Проект наглядно демонстрирует баланс между фондом оплаты труда (ФОТ), расходами на серверную инфраструктуру, техническим долгом, моральным состоянием коллектива и инвестициями в R&D.<br><br>
+        <strong>Что было реализовано:</strong><br>
+        1. Архитектура приложения построена на чистом <strong>JavaScript (ES6+)</strong> без сторонних фреймворков и библиотек, что гарантирует мгновенную загрузку и автономную работу в любом браузере без установки Node.js или веб-сервера.<br>
+        2. Разработан <strong>дискретный игровой цикл (Game Loop)</strong> с управлением темпом симуляции (0.5x, 1x, Пауза) и многофакторным расчетом финансового сальдо.<br>
+        3. Внедрено <strong>четырехуровневое дерево технологий из 30 уникальных проектов</strong> (по 10 для каждого направления: «Нейросети», «GameDev», «Кибербезопасность»), структурированных по уровням: Стартап, B2B-сегмент, Enterprise и Глобальная экосистема.<br>
+        4. Реализована <strong>динамическая модель настроения коллектива (Morale Engine)</strong>, влияющая на производительность труда разработчиков от -50% при выгорании до +20% при комфортных условиях труда.<br>
+        5. Спроектирован <strong>модуль операционных рисков и технического долга</strong>: возникновение инцидентов (прод-багов) с 50% потерей выручки, ручной хотфиксинг и автоматический триаж багов Senior-тимлидами.<br>
+        6. Разработана <strong>математическая модель биржевых торгов</strong> с алгоритмом возврата к равновесию (Mean-Reversion), защитой от застревания котировок, стохастическим новостным анализом (Market Sentiment) и векторным рендерингом на <strong>HTML5 Canvas</strong>.<br><br>
+        Проект полностью автономен, адаптивен и сохраняет состояние в LocalStorage. Спасибо за внимание, готов ответить на ваши вопросы!»
+    </blockquote>
+
+    <h2>2. Базовая архитектура (Как устроен проект)</h2>
+    <p>Проект состоит из трёх файлов — «классической триады веб-разработки»:</p>
+    <ul>
+        <li><strong><code>index.html</code> (Скелет и структура):</strong>
+            Содержит разметку экранов: Главное меню, модальные окна (Обучение, Настройки, Выбор отрасли, Банкротство) и дашборд. Все модальные окна изначально имеют класс <code>.hidden</code>. Индикаторы шапки выводят баланс, чистую прибыль, репутацию, офис и шкалу морали.
+        </li>
+        <li><strong><code>style.css</code> (Внешний вид, анимации и стили):</strong>
+            Реализует тему Dark Enterprise / Cyberpunk. Построен на <strong>CSS Grid</strong> (3 независимые колонки дашборда) и <strong>Flexbox</strong> (выравнивание карточек, кнопок и бейджей). Содержит стили состояний: <code>.project-card.locked</code>, <code>.bugged</code>, <code>.bar-bugged</code>.
+        </li>
+        <li><strong><code>game.js</code> (Бизнес-логика, математика и алгоритмы):</strong>
+            Хранит состояние игры в объекте <code>gameState</code> (паттерн <em>Single Source of Truth</em>). Содержит каталог проектов <code>directionProjectsCatalog</code> (30 проектов, 4 тира). Управляет циклом, кадрами, прибылью, биржей, багами и моралью.
+        </li>
+    </ul>
+
+    <h2>3. Построчный разбор ключевых функций <code>game.js</code></h2>
+
+    <h3>Блок 1: Состояние игры (<code>gameState</code>)</h3>
+    <pre><code>let gameState = {
+    money: 6000,
+    day: 1,
+    reputation: 50,
+    officeTier: 1,
+    morale: 80, // Мораль команды: 0 - 100%
+    upgrades: [],
+    stocks: { price: 100, floatPrice: 100.0, history: [100], userOwned: 0, marketTrend: 0 },
+    employees: { junior: { count: 0, salary: 60, devPower: 2 }, ... },
+    projects: [...]
+};</code></pre>
+    <p><strong>Зачем это нужно:</strong> Паттерн <em>Single Source of Truth</em> (Единый источник правды). Любое изменение сначала мутирует поле в <code>gameState</code>, а затем <code>updateUI()</code> синхронизирует DOM.</p>
+
+    <h3>Блок 2: Формула финансового сальдо (<code>calculateNetDailyProfit</code>)</h3>
+    <pre><code>function calculateNetDailyProfit() {
+    let passive = 0;
+    const passiveMultiplier = gameState.upgrades.includes('server') ? 1.20 : 1.0;
+    for (const p of gameState.projects) {
+        if (p.completed) {
+            let inc = p.passiveIncome || 0;
+            if (p.hasBug) inc = Math.round(inc * 0.5); // Штраф за баг 50%
+            passive += Math.round(inc * passiveMultiplier);
+        }
+    }
+    let salaries = 0;
+    for (const emp of Object.values(gameState.employees)) {
+        salaries += (emp.count || 0) * (emp.salary || 0);
+    }
+    const serverDiscount = gameState.upgrades.includes('server') ? 0.70 : 1.0;
+    let serverCosts = 0;
+    for (const p of gameState.projects) {
+        if (p.completed && p.serverCost) {
+            serverCosts += Math.round(p.serverCost * serverDiscount);
+        }
+    }
+    return passive - salaries - serverCosts;
+}</code></pre>
+    <p><strong>Формула чистой прибыли в день:</strong><br>
+    <code>Чистая прибыль = Сумма(ПассивныйДоход × K_bug × K_server) − Сумма(Зарплаты) − Сумма(СерверныйХостинг × K_discount)</code></p>
+
+    <h3>Блок 3: Влияние морали на разработку (<code>calculateMoraleProductivity</code>)</h3>
+    <pre><code>function calculateMoraleProductivity() {
+    if (gameState.morale >= 90) return 1.20; // +20% воодушевление команды
+    if (gameState.morale < 40)  return 0.50; // -50% кризис выгорания (Burnout)
+    return 1.0;                              // 100% штатная продуктивность
+}</code></pre>
+    <p><strong>Как работает:</strong> При выгорании (дефицит бюджета) код пишется в 2 раза медленнее. Улучшения офиса (кофемашина, эргономичные кресла) поднимают мораль выше 90%.</p>
+
+    <h3>Блок 4: Дерево технологий и разблокировка проектов (<code>isProjectUnlocked</code>)</h3>
+    <pre><code>function isProjectUnlocked(project) {
+    if (!project) return false;
+    if (project.minOfficeTier && gameState.officeTier < project.minOfficeTier) return false;
+    if (project.minReputation && gameState.reputation < project.minReputation) return false;
+    if (project.prereqId && !isProjectCompleted(project.prereqId)) return false;
+    return true;
+}</code></pre>
+    <p><strong>Как работает:</strong> Проект блокируется, если не соблюден уровень офиса, репутация или не сдан проект-предшественник. На карточке выводится бейдж с причиной блокировки.</p>
+
+    <h3>Блок 5: Инциденты и хотфиксинг (<code>handleDailyProjectBugs</code> и <code>fixProjectBug</code>)</h3>
+    <pre><code>function handleDailyProjectBugs() {
+    for (const p of gameState.projects) {
+        if (!p.completed) continue;
+        if (!p.hasBug && Math.random() < 0.015) { // 1.5% шанс сбоя в день
+            p.hasBug = true;
+            addLog(`Инцидент: в проекте "${p.name}" обнаружен критический баг!`, 'danger');
+        } else if (p.hasBug) {
+            const seniorCount = (gameState.employees.senior && gameState.employees.senior.count) || 0;
+            if (seniorCount > 0 && Math.random() < 0.25) { // Senior-автотриаж
+                p.hasBug = false;
+                addLog(`Senior-тимлид устранил баг в проекте "${p.name}"!`, 'success');
+            }
+        }
+    }
+}</code></pre>
+
+    <h3>Блок 6: Стохастическая биржа с возвратом к среднему (<code>calculateStockPrice</code>)</h3>
+    <pre><code>function calculateStockPrice(currentPrice, trend = 0) {
+    const meanReversion = (100.0 - currentPrice) * 0.012; // Стяжка к $100
+    let delta = (Math.random() * 0.08 - 0.038) + (trend * 0.04) + (meanReversion / 100);
+    if (currentPrice < 25) delta += 0.035;  // Отталкивание от дна
+    if (currentPrice > 550) delta -= 0.035; // Отталкивание от потолка
+    let nextPrice = currentPrice * (1 + delta);
+    return Math.max(15, Math.min(600, Math.round(nextPrice)));
+}</code></pre>
+
+    <h2>4. Каталог 30 проектов: 4 уровня технологической зрелости</h2>
+    <table>
+        <tr>
+            <th>Уровень (Tier)</th>
+            <th>Статус проектов</th>
+            <th>Условия доступа</th>
+            <th>Примеры проектов в каталоге</th>
+        </tr>
+        <tr>
+            <td><span class="badge-tier">Tier 1</span> Стартап / MVP</td>
+            <td>Базовые прототипы для первых доходов</td>
+            <td>Доступны в Гараже, низкая репутация</td>
+            <td>AI Chatbot MVP, 2D Pixel Platformer, Сканер портов</td>
+        </tr>
+        <tr>
+            <td><span class="badge-tier">Tier 2</span> Commercial B2B</td>
+            <td>Заказные коммерческие решения</td>
+            <td>Офис 2 (Коворкинг), завершение Tier 1</td>
+            <td>Smart CRM Analytics, Мобильная 3D-игра, DLP-аудит данных</td>
+        </tr>
+        <tr>
+            <td><span class="badge-tier">Tier 3</span> Enterprise</td>
+            <td>Высоконагруженные облачные сервисы</td>
+            <td>Офис 3 (БЦ), репутация ≥ 70, серверы</td>
+            <td>Computer Vision Core, MMORPG Server Cloud, SOC Security Center</td>
+        </tr>
+        <tr>
+            <td><span class="badge-tier">Tier 4</span> Global Platform</td>
+            <td>Мировые технологические экосистемы</td>
+            <td>Офис 4 (Небоскреб), репутация ≥ 90</td>
+            <td>AGI Multi-Modal Engine, VR Metaverse, Квантовая криптография</td>
+        </tr>
+    </table>
+
+    <h2>5. Топ-15 каверзных вопросов комиссии и идеальные ответы</h2>
+    <table>
+        <tr>
+            <th style="width: 5%;">№</th>
+            <th style="width: 35%;">Вопрос преподавателя</th>
+            <th>Твой готовый уверенный ответ</th>
+        </tr>
+        <tr>
+            <td><strong>1</strong></td>
+            <td><em>Почему вы не использовали React или Vue?</em></td>
+            <td>«Для симулятора такого масштаба чистый JavaScript (Vanilla JS) обеспечивает максимальную производительность без оверхеда на Virtual DOM. Проект открывается мгновенно в любом браузере, запускается из локального файла без сборщиков и npm-зависимостей.»</td>
+        </tr>
+        <tr>
+            <td><strong>2</strong></td>
+            <td><em>Где сохраняются данные игры?</em></td>
+            <td>«Данные сохраняются в <code>window.localStorage</code> браузера в формате JSON. При повторном открытии кнопка "Продолжить" восстанавливает полное состояние игры: баланс, день, штат, каталог проектов и котировки акций.»</td>
+        </tr>
+        <tr>
+            <td><strong>3</strong></td>
+            <td><em>Как реализовано дерево разблокировки проектов (Tech Tree)?</em></td>
+            <td>«Функция <code>isProjectUnlocked()</code> проверяет предикаты: текущий уровень офиса игрока, порог репутации и завершенность проекта-предшественника. Если условия не выполнены, проект рендерится как заблокированный с бейджем причины.»</td>
+        </tr>
+        <tr>
+            <td><strong>4</strong></td>
+            <td><em>Что такое технический долг в игре и как он моделируется?</em></td>
+            <td>«Завершенные проекты генерируют пассивный доход, но ежедневно имеют 1.5% шанс инцидента (<code>hasBug</code>). При сбое выручка падает на 50%, а карточка мигает красным. Игрок может сделать ручной хотфикс или опереться на авто-триаж Senior-разработчиков.»</td>
+        </tr>
+        <tr>
+            <td><strong>5</strong></td>
+            <td><em>Как работает механика морали сотрудников?</em></td>
+            <td>«Переменная <code>gameState.morale</code> (0–100%) зависит от своевременной выплаты зарплат и обустройства офиса (кофемашина, кресла). При морали ≥ 90% скорость разработки возрастает на 20%, а при выгорании (&lt; 40%) падает вдвое.»</td>
+        </tr>
+        <tr>
+            <td><strong>6</strong></td>
+            <td><em>Почему цена акций не застревает на границах?</em></td>
+            <td>«Применен процесс Орнштейна — Уленбека с непрерывной вещественной ценой <code>floatPrice</code>. При приближении цены к $15 или $600 включается мягкое квадратичное отталкивание, возвращающее котировки к среднему значению $100.»</td>
+        </tr>
+        <tr>
+            <td><strong>7</strong></td>
+            <td><em>Как график на Canvas справляется с одинаковыми ценами?</em></td>
+            <td>«В функции <code>drawStockChart()</code> диапазон <code>range = maxVal - minVal</code> защищен условием: если он равен 0, делитель принимается равным 1, исключая деление на ноль и появление NaN в координатах.»</td>
+        </tr>
+        <tr>
+            <td><strong>8</strong></td>
+            <td><em>Что такое Single Source of Truth в вашем проекте?</em></td>
+            <td>«Все данные сгруппированы в объекте <code>gameState</code>. UI не хранит собственное состояние, а лишь реактивно проецирует <code>gameState</code>. Это исключает рассинхронизацию интерфейса и данных.»</td>
+        </tr>
+        <tr>
+            <td><strong>9</strong></td>
+            <td><em>Как рассчитывается чистая прибыль в день?</em></td>
+            <td>«Формула вычитает из суммарного пассивного дохода завершенных проектов фонд оплаты труда сотрудников и расходы на обслуживание серверов: <code>P = Сумма(Доход) − ФОТ − Сумма(Серверы)</code>.»</td>
+        </tr>
+        <tr>
+            <td><strong>10</strong></td>
+            <td><em>Зачем в игре несколько скоростей времени?</em></td>
+            <td>«Для эргономики UI/UX. В режиме 0.5x новичок успевает анализировать новости биржи и подсказки, а в режиме 1x опытный игрок быстро завершает крупные наукоемкие проекты.»</td>
+        </tr>
+        <tr>
+            <td><strong>11</strong></td>
+            <td><em>Как генерируются звуки без аудиофайлов?</em></td>
+            <td>«Через встроенный браузерный <strong>Web Audio API</strong>. Функция <code>playTone()</code> создает <code>OscillatorNode</code>, генерирует звуковую волну заданной частоты и закрывает аудиоконтекст, не раздувая вес сборки.»</td>
+        </tr>
+        <tr>
+            <td><strong>12</strong></td>
+            <td><em>Что происходит при отрицательном балансе?</em></td>
+            <td>«При дефиците мораль команды падает на 3% в день, а при достижении долга -$5,000 система блокирует найм новых людей и показывает диалоговое окно предупреждения о банкротстве.»</td>
+        </tr>
+        <tr>
+            <td><strong>13</strong></td>
+            <td><em>Как обеспечена адаптивность интерфейса?</em></td>
+            <td>«Через CSS Grid и медиа-запросы <code>@media (max-width: 1240px)</code>. 3-колоночный дашборд автоматически трансформируется в вертикальную ленту при снижении ширины окна.»</td>
+        </tr>
+        <tr>
+            <td><strong>14</strong></td>
+            <td><em>Какова алгоритмическая сложность игрового цикла?</em></td>
+            <td>«Сложность цикла составляет O(N), где N — число активных проектов (до 30). Вычисления занимают доли миллисекунды, гарантируя 60 FPS.»</td>
+        </tr>
+        <tr>
+            <td><strong>15</strong></td>
+            <td><em>Каковы перспективы развития проекта?</em></td>
+            <td>«Подключение серверной части на Node.js или FastAPI с базой данных PostgreSQL для таблицы лидеров, а также многопользовательская торговля акциями через WebSockets.»</td>
+        </tr>
+    </table>
+
+    <h2>6. Памятка по демонстрации на защите (Сценарий на 1 минуту)</h2>
+    <ol>
+        <li><strong>Запуск:</strong> Открыть <code>index.html</code> в браузере.</li>
+        <li><strong>Шаг 1:</strong> Нажать «Играть», ввести название компании, выбрать отрасль («IT и Нейросети»).</li>
+        <li><strong>Шаг 2:</strong> Сделать 3-4 клика по кнопке ручного кодинга (+50$), заработав стартовый капитал.</li>
+        <li><strong>Шаг 3:</strong> Нанять Junior-разработчика, открыть вкладку «Продукты» и запустить разработку MVP.</li>
+        <li><strong>Шаг 4:</strong> Показать график акций на Canvas и новостной сигнал, купить 5 акций компании.</li>
+        <li><strong>Шаг 5:</strong> Продемонстрировать заблокированные карточки 2 и 3 уровней с требованиями расширения офиса и завершения предшественников.</li>
+    </ol>
+</div>
+
+</body>
+</html>

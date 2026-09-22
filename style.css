@@ -1,0 +1,730 @@
+/* ==========================================================================
+   CyberTycoon — Стили интерфейса (CSS Pro)
+   Стиль: Dark Enterprise / Cyberpunk Dashboard + Main Menu
+   ========================================================================== */
+
+:root {
+    --bg-main: #0a0d14;
+    --bg-panel: #141923;
+    --bg-card: #1d2331;
+    --border-color: #2b3345;
+    
+    --text-primary: #f0f6fc;
+    --text-muted: #8b949e;
+    
+    --color-green: #2ea043;
+    --color-green-hover: #3fb950;
+    --color-cyan: #388bfd;
+    --color-yellow: #d29922;
+    --color-red: #f85149;
+    --color-red-hover: #da3633;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden { display: none !important; }
+
+/* ==========================================================================
+   1. СТИЛИ ГЛАВНОГО МЕНЮ (START SCREEN)
+   ========================================================================== */
+.menu-screen {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 30%, #172136 0%, #080b11 80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+    overflow: hidden;
+}
+
+.menu-container {
+    background: rgba(20, 25, 35, 0.95);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 480px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 139, 253, 0.1);
+}
+
+.badge-diploma {
+    background: rgba(56, 139, 253, 0.15);
+    color: var(--color-cyan);
+    border: 1px solid var(--color-cyan);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.game-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin: 14px 0 6px 0;
+    background: linear-gradient(135deg, #ffffff 30%, #388bfd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.game-tagline {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 28px;
+}
+
+.menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-btn {
+    border: none;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.menu-btn-primary {
+    background: linear-gradient(135deg, #388bfd, #1f6feb);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(56, 139, 253, 0.4);
+}
+.menu-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 139, 253, 0.6);
+}
+
+.menu-btn-secondary {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+.menu-btn-secondary:hover {
+    background: #272f42;
+    transform: translateY(-2px);
+    border-color: #485470;
+}
+
+.menu-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+/* ==========================================================================
+   2. КАРТОЧКИ ВЫБОРА НАПРАВЛЕНИЯ
+   ========================================================================== */
+.direction-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+}
+
+@media (max-width: 800px) {
+    .direction-grid { grid-template-columns: 1fr; }
+}
+
+.direction-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.direction-card:hover {
+    border-color: var(--color-cyan);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(56, 139, 253, 0.2);
+}
+
+.dir-icon { font-size: 2.2rem; margin-bottom: 8px; }
+.direction-card h4 { font-size: 1.05rem; margin-bottom: 6px; }
+.direction-card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.4; }
+
+/* ==========================================================================
+   3. ШАПКА ИГРЫ И ДАШБОРД
+   ========================================================================== */
+.app-container {
+    padding: 16px 24px;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo h1 { font-size: 1.3rem; font-weight: 700; }
+.logo small { color: var(--color-cyan); font-size: 0.8rem; }
+
+.metrics {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.metric-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 6px 14px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    min-width: 110px;
+}
+
+.metric-label { font-size: 0.75rem; color: var(--text-muted); }
+.metric-value { font-size: 1.05rem; font-weight: 700; }
+
+.text-green { color: var(--color-green-hover); }
+.text-cyan { color: var(--color-cyan); }
+.text-yellow { color: var(--color-yellow); }
+.text-red { color: var(--color-red); }
+
+.top-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Сетка дашборда на 3 колонки */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 360px 1fr 390px;
+    gap: 20px;
+}
+
+@media (max-width: 1240px) {
+    .dashboard-grid { grid-template-columns: 1fr; }
+}
+
+.panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.panel-header h2 { font-size: 1.15rem; font-weight: 600; }
+.panel-header h3 { font-size: 0.95rem; font-weight: 600; }
+
+.panel-desc {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.badge {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   4. КАРТОЧКИ ПЕРСОНАЛА (НАЙМ И УВОЛЬНЕНИЕ)
+   ========================================================================== */
+.hire-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    max-height: 560px;
+}
+
+.hire-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.hire-info h4 { font-size: 0.92rem; margin-bottom: 4px; }
+.hire-stats { font-size: 0.78rem; color: var(--text-muted); }
+
+.hire-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hire-count-badge {
+    background: #0d1117;
+    border: 1px solid var(--border-color);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    min-width: 32px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   5. ВКЛАДКИ (TABS) И ЦЕНТР R&D
+   ========================================================================== */
+.tab-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active-tab {
+    background: var(--bg-card);
+    color: var(--color-cyan);
+    border: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   5.1 ОФИС И АПГРЕЙДЫ (ШТАБ-КВАРТИРА)
+   ========================================================================== */
+.office-showcase-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 10px;
+}
+
+.office-details h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.office-details p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.upgrades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+    max-height: 380px;
+    overflow-y: auto;
+}
+
+.upgrade-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+}
+
+.upgrade-card:hover {
+    border-color: var(--color-cyan);
+}
+
+.upgrade-card.purchased {
+    border-color: var(--color-green);
+    background: rgba(46, 160, 67, 0.08);
+}
+
+.upgrade-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.upgrade-icon { font-size: 1.6rem; }
+.upgrade-card h4 { font-size: 0.95rem; }
+.upgrade-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 12px; }
+
+.active-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 14px;
+    transition: all 0.2s ease;
+}
+
+.project-card.locked {
+    opacity: 0.65;
+    background: rgba(22, 27, 34, 0.5);
+    border-style: dashed;
+    border-color: #30363d;
+}
+
+.project-card.bugged {
+    border-color: var(--color-red);
+    background: rgba(248, 81, 73, 0.06);
+}
+
+.project-card.completed {
+    border-color: rgba(46, 160, 67, 0.4);
+}
+
+.project-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.project-tier-tag {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+
+.project-reward-tag {
+    font-size: 0.75rem;
+    color: var(--color-cyan);
+    margin-left: 8px;
+}
+
+.lock-reason {
+    background: rgba(210, 153, 34, 0.1);
+    border: 1px dashed rgba(210, 153, 34, 0.35);
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin: 6px 0 8px 0;
+    font-size: 0.8rem;
+    color: #e3b341;
+}
+
+.progress-bar-bg {
+    background: #090d13;
+    border-radius: 6px;
+    height: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #388bfd, #2ea043);
+    width: 0%;
+    transition: width 0.2s ease;
+}
+
+.progress-bar-fill.bar-bugged {
+    background: linear-gradient(90deg, #f85149, #d29922);
+}
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-active {
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   6. БИРЖА И НОВОСТНЫЕ СИГНАЛЫ (ИНСАЙД)
+   ========================================================================== */
+.chart-wrapper {
+    background: #090d13;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.market-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.stock-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    gap: 4px;
+}
+
+.market-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 14px 0;
+}
+
+/* Новостной сигнальный бокс */
+.news-signal-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.news-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.news-tag.bullish { background: rgba(46, 160, 67, 0.2); color: var(--color-green-hover); border: 1px solid var(--color-green); }
+.news-tag.bearish { background: rgba(248, 81, 73, 0.2); color: var(--color-red); border: 1px solid var(--color-red); }
+.news-tag.neutral { background: rgba(56, 139, 253, 0.2); color: var(--color-cyan); border: 1px solid var(--color-cyan); }
+
+.news-signal-box p {
+    font-size: 0.82rem;
+    color: #e6edf3;
+    line-height: 1.4;
+}
+
+.event-feed {
+    background: #090d13;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
+    height: 140px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.feed-item {
+    font-size: 0.78rem;
+    color: #c9d1d9;
+    border-left: 3px solid var(--color-cyan);
+    padding-left: 8px;
+}
+
+/* ==========================================================================
+   7. КНОПКИ И МОДАЛЬНЫЕ ОКНА
+   ========================================================================== */
+.btn {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-primary { background: var(--color-cyan); color: #fff; }
+.btn-primary:hover { filter: brightness(1.15); }
+
+.btn-secondary { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-color); }
+.btn-secondary:hover { background: #272f42; }
+.btn-secondary.active-speed { background: var(--color-cyan); color: #fff; border-color: var(--color-cyan); }
+
+.btn-success { background: var(--color-green); color: #fff; }
+.btn-success:hover { background: var(--color-green-hover); }
+
+.btn-danger { background: var(--color-red); color: #fff; }
+.btn-danger:hover { background: var(--color-red-hover); }
+
+.btn-sm { padding: 4px 10px; font-size: 0.8rem; }
+.btn-block { width: 100%; display: block; }
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--color-cyan);
+    border-radius: 14px;
+    padding: 24px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+}
+
+.wide-card { max-width: 760px; }
+
+.modal-badge {
+    background: var(--color-yellow);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.modal-card h3 { margin: 12px 0 8px 0; font-size: 1.25rem; }
+.modal-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px; }
+
+/* Туториал шаги */
+.tutorial-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.t-step {
+    display: flex;
+    gap: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px;
+    align-items: flex-start;
+}
+
+.t-num {
+    background: var(--color-cyan);
+    color: #fff;
+    font-weight: bold;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.t-step strong { font-size: 0.95rem; color: #fff; display: block; margin-bottom: 4px; }
+.t-step p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+
+/* Настройки */
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 16px 0;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.about-info p { margin-bottom: 10px; font-size: 0.88rem; }

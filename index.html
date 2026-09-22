@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberTycoon — Экономический симулятор IT-корпорации</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================================================================= -->
+    <!-- 1. ГЛАВНОЕ МЕНЮ (СТАРТОВЫЙ ЭКРАН)                                  -->
+    <!-- ================================================================= -->
+    <div id="main-menu-screen" class="menu-screen">
+        <div class="menu-backdrop-glow"></div>
+        <div class="menu-container">
+            <div class="menu-header">
+                <span class="badge-diploma">ДИПЛОМНЫЙ ПРОЕКТ</span>
+                <h1 class="game-title">CyberTycoon</h1>
+                <p class="game-tagline">Интеллектуальный симулятор управления технологической корпорацией</p>
+            </div>
+
+            <div class="menu-nav">
+                <button id="menu-btn-play" class="menu-btn menu-btn-primary">▶ Играть / Новая игра</button>
+                <button id="menu-btn-continue" class="menu-btn menu-btn-secondary" style="display: none;">💾 Продолжить сохранённую игру</button>
+                <button id="menu-btn-tutorial" class="menu-btn menu-btn-secondary">📖 Обучение (Как играть)</button>
+                <button id="menu-btn-settings" class="menu-btn menu-btn-secondary">⚙️ Настройки</button>
+                <button id="menu-btn-about" class="menu-btn menu-btn-secondary">🎓 О проекте (Паспорт диплома)</button>
+            </div>
+
+            <div class="menu-footer">
+                <span>Версия: 1.0 Pro</span>
+                <span>Архитектура: Pure JS & HTML5 Canvas</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- 2. МОДАЛЬНОЕ ОКНО: ВЫБОР НАПРАВЛЕНИЯ КОМПАНИИ (СТАРТ НОВОЙ ИГРЫ)   -->
+    <!-- ================================================================= -->
+    <div id="direction-modal" class="modal-overlay hidden">
+        <div class="modal-card wide-card">
+            <span class="modal-badge">ВЫБОР СТАРТОВОГО СЕТТИНГА</span>
+            <h3>Выберите направление вашей компании:</h3>
+            <p>Сеттинг определяет список разрабатываемых продуктов, стартовые бонусы и специфику рынка.</p>
+
+            <div class="direction-grid">
+                <div class="direction-card" onclick="selectCompanyDirection('ai')">
+                    <div class="dir-icon">🧠</div>
+                    <h4>IT и Нейросети (AI Corp)</h4>
+                    <p>Разработка чат-ботов, генеративных моделей и дата-центров. Бонус: ускоренная разработка ИИ.</p>
+                    <button class="btn btn-primary btn-block">Выбрать NeuroCorp</button>
+                </div>
+
+                <div class="direction-card" onclick="selectCompanyDirection('gamedev')">
+                    <div class="dir-icon">🎮</div>
+                    <h4>GameDev Студия</h4>
+                    <p>Создание мобильных хитов, инди-игр и блокбастеров на собственном движке. Бонус: повышенная репутация.</p>
+                    <button class="btn btn-primary btn-block">Выбрать PixelCraft</button>
+                </div>
+
+                <div class="direction-card" onclick="selectCompanyDirection('cybersec')">
+                    <div class="dir-icon">🛡️</div>
+                    <h4>Кибербезопасность</h4>
+                    <p>Разработка антивирусов, корпоративных файрволов и защита от хакерских атак. Бонус: защита от штрафов.</p>
+                    <button class="btn btn-primary btn-block">Выбрать CyberShield</button>
+                </div>
+            </div>
+
+            <div style="text-align: right; margin-top: 15px;">
+                <button class="btn btn-secondary" onclick="closeModal('direction-modal')">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- 3. МОДАЛЬНОЕ ОКНО: ОБУЧЕНИЕ (ТУТОРИАЛ)                             -->
+    <!-- ================================================================= -->
+    <div id="tutorial-modal" class="modal-overlay hidden">
+        <div class="modal-card wide-card">
+            <span class="modal-badge">ИНСТРУКЦИЯ ПО ГЕЙМПЛЕЮ</span>
+            <h3>Руководство пользователя: Как играть в CyberTycoon</h3>
+            
+            <div class="tutorial-steps">
+                <div class="t-step">
+                    <span class="t-num">1</span>
+                    <div>
+                        <strong>Баланс и Зарплаты:</strong>
+                        <p>Каждый день со счета списываются зарплаты сотрудников. Нанимайте персонал аккуратно, чтобы не уйти в минус! Если денег не хватает — сотрудника можно <strong>уволить</strong>.</p>
+                    </div>
+                </div>
+                <div class="t-step">
+                    <span class="t-num">2</span>
+                    <div>
+                        <strong>Центр R&D (Проекты):</strong>
+                        <p>Сотрудники пишут код и двигают прогресс проектов. Готовые проекты выводятся на рынок и приносят постоянный пассивный доход каждую секунду.</p>
+                    </div>
+                </div>
+                <div class="t-step">
+                    <span class="t-num">3</span>
+                    <div>
+                        <strong>Умная Биржа и Новости (Инсайд):</strong>
+                        <p>Следите за новостной лентой биржи. <strong>Зелёные новости</strong> означают скорый рост акций (пора покупать!). <strong>Красные новости</strong> предвещают падение (пора продавать!).</p>
+                    </div>
+                </div>
+                <div class="t-step">
+                    <span class="t-num">4</span>
+                    <div>
+                        <strong>Управление временем:</strong>
+                        <p>В шапке можно переключать скорость: замедленная (0.5x), нормальная (1x) или пауза для спокойного анализа ситуации.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-primary" onclick="closeModal('tutorial-modal')">Понятно, всё ясно!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- 4. МОДАЛЬНОЕ ОКНО: НАСТРОЙКИ                                       -->
+    <!-- ================================================================= -->
+    <div id="settings-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <span class="modal-badge">ПАРАМЕТРЫ СИМУЛЯЦИИ</span>
+            <h3>Настройки игры</h3>
+            
+            <div class="settings-list">
+                <div class="setting-item">
+                    <span>Звуковые эффекты:</span>
+                    <input type="checkbox" id="setting-sound" checked>
+                </div>
+                <div class="setting-item">
+                    <span>Автосохранение каждые 30 сек:</span>
+                    <input type="checkbox" id="setting-autosave" checked>
+                </div>
+                <div class="setting-item">
+                    <span>Сбросить сохранённый прогресс:</span>
+                    <button class="btn btn-danger btn-sm" onclick="resetSaveData()">Сбросить данные</button>
+                </div>
+            </div>
+
+            <div style="text-align: right; margin-top: 20px;">
+                <button class="btn btn-secondary" onclick="closeModal('settings-modal')">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- 5. МОДАЛЬНОЕ ОКНО: О ПРОЕКТЕ (ПАСПОРТ ДИПЛОМА)                     -->
+    <!-- ================================================================= -->
+    <div id="about-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <span class="modal-badge">ДИПЛОМНАЯ ИНФОРМАЦИЯ</span>
+            <h3>Паспорт дипломной работы</h3>
+            
+            <div class="about-info">
+                <p><strong>Тема:</strong> «Разработка интеллектуального веб-симулятора технологической корпорации с модулем рыночной аналитики»</p>
+                <p><strong>Стек технологий:</strong> HTML5, CSS3, ES6+ JavaScript, Canvas API, Web Audio API, LocalStorage.</p>
+                <p><strong>Архитектурные паттерны:</strong> State Machine, Event-Driven Architecture, Observer (подписка на новостные триггеры биржи).</p>
+                <p><strong>Назначение:</strong> Обучающий и развлекательный симулятор экономической модели IT-предприятия.</p>
+            </div>
+
+            <div style="text-align: right; margin-top: 20px;">
+                <button class="btn btn-primary" onclick="closeModal('about-modal')">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- 6. ОСНОВНОЙ ЭКРАН САМОЙ ИГРЫ                                      -->
+    <!-- ================================================================= -->
+    <div id="game-screen" class="app-container hidden">
+        
+        <!-- Верхняя панель: Ресурсы и показатели компании -->
+        <header class="top-bar">
+            <div class="logo">
+                <button class="btn btn-secondary btn-sm" id="btn-back-to-menu" title="В главное меню">🏠 Меню</button>
+                <div>
+                    <h1 id="company-name-display">NeuroCorp</h1>
+                    <small id="company-dir-display">IT & Нейросети</small>
+                </div>
+            </div>
+            
+            <div class="metrics">
+                <div class="metric-card">
+                    <span class="metric-label">Баланс:</span>
+                    <span class="metric-value text-green" id="money-display">$5,000</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Прибыль/день:</span>
+                    <span class="metric-value" id="income-display">+$0/день</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Репутация:</span>
+                    <span class="metric-value text-yellow" id="reputation-display">⭐ 50</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Мораль команды:</span>
+                    <span class="metric-value text-green" id="morale-display">😊 85%</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Офис / Места:</span>
+                    <span class="metric-value text-cyan" id="office-display">Гараж (0/4)</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Игровой день:</span>
+                    <span class="metric-value" id="day-display">День 1</span>
+                </div>
+            </div>
+
+            <!-- Управление скоростью времени -->
+            <div class="top-actions">
+                <button id="speed-slow-btn" class="btn btn-secondary">🐢 0.5x</button>
+                <button id="speed-normal-btn" class="btn btn-secondary active-speed">▶ 1x</button>
+                <button id="pause-btn" class="btn btn-secondary">⏸ Пауза</button>
+                <button id="save-btn" class="btn btn-secondary">💾 Сохранить</button>
+            </div>
+        </header>
+
+        <!-- Основная рабочая зона: разделена на 3 колонки -->
+        <main class="dashboard-grid">
+            
+            <!-- Левая колонка: Персонал (Найм и Увольнение) -->
+            <section class="panel staff-panel">
+                <div class="panel-header">
+                    <h2>Отдел кадров (HR)</h2>
+                    <span class="badge" id="total-employees">Сотрудников: 0</span>
+                </div>
+                <p class="panel-desc">Сотрудники ускоряют разработку, но требуют ежедневную зарплату. Лимит мест зависит от уровня вашего офиса.</p>
+                
+                <div class="hire-list" id="hire-list">
+                    <!-- Карточки вакансий с кнопками Нанять (+) и Уволить (-) -->
+                </div>
+            </section>
+
+            <!-- Центральная колонка: Центр разработки (R&D) + Штаб-квартира (Вкладки) -->
+            <section class="panel projects-panel">
+                
+                <!-- Панель переключения вкладок -->
+                <div class="tab-nav">
+                    <button class="tab-btn active-tab" id="tab-btn-rd" onclick="switchCentralTab('rd')">
+                        📋 Центр R&D (Проекты)
+                    </button>
+                    <button class="tab-btn" id="tab-btn-office" onclick="switchCentralTab('office')">
+                        🏢 Штаб-квартира и Апгрейды
+                    </button>
+                </div>
+
+                <!-- ВКЛАДКА 1: Центр R&D и проекты -->
+                <div id="tab-content-rd">
+                    <div class="panel-header">
+                        <h2>Продукты и Контракты</h2>
+                        <button class="btn btn-primary" id="start-click-work">⚡ Написать код вручную (+$50)</button>
+                    </div>
+                    <p class="panel-desc">Разрабатывайте новые решения. Завершенные проекты дают постоянный пассивный доход каждый день.</p>
+                    
+                    <div class="active-projects" id="active-projects-list">
+                        <!-- Список проектов текущей отрасли -->
+                    </div>
+                </div>
+
+                <!-- ВКЛАДКА 2: Штаб-квартира, уровни офиса и апгрейды оборудования -->
+                <div id="tab-content-office" class="hidden">
+                    <div class="panel-header">
+                        <h2>Уровень Офиса и Недвижимость</h2>
+                        <span class="badge text-cyan" id="current-tier-badge">Уровень 1</span>
+                    </div>
+                    <p class="panel-desc">Расширяйте офис, чтобы нанимать больше специалистов и увеличивать престиж компании.</p>
+                    
+                    <!-- Карточка текущего офиса и переезда -->
+                    <div class="office-showcase-card" id="office-showcase">
+                        <!-- Динамически заполняется через JS -->
+                    </div>
+
+                    <div class="panel-header" style="margin-top: 18px;">
+                        <h2>Техническое оснащение и Улучшения</h2>
+                    </div>
+                    <p class="panel-desc">Покупайте оборудование для ускорения кодинга, увеличения серверного дохода и комфорта сотрудников.</p>
+
+                    <div class="upgrades-grid" id="upgrades-grid">
+                        <!-- Карточки оборудования заполняются через JS -->
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Правая колонка: Умная Биржа с Инсайдерскими Новостями -->
+            <section class="panel market-panel">
+                <div class="panel-header">
+                    <h2>Фондовая Биржа (Market)</h2>
+                    <span class="badge text-cyan">Инсайд-лента</span>
+                </div>
+                <p class="panel-desc">Котировки акций меняются под влиянием новостей. Следите за сигналами: покупайте дёшево, продавайте дорого!</p>
+                
+                <!-- Холст для рисования живого графика котировок -->
+                <div class="chart-wrapper">
+                    <canvas id="market-chart" width="340" height="140"></canvas>
+                </div>
+                
+                <div class="market-controls">
+                    <div class="stock-info">
+                        <span>Акции TECH: <strong id="stock-price">$100</strong></span>
+                        <span>У вас: <strong id="user-shares">0</strong> шт. (Ценность: <span id="portfolio-value">$0</span>)</span>
+                    </div>
+                    <div class="market-buttons">
+                        <button class="btn btn-success" id="buy-share-btn">Купить ($100)</button>
+                        <button class="btn btn-danger" id="sell-share-btn">Продать</button>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <!-- Блок инсайдерских новостей биржи -->
+                <div class="panel-header">
+                    <h3>📢 Новости и аналитические сигналы</h3>
+                </div>
+                <div class="news-signal-box" id="latest-news-signal">
+                    <div class="news-tag neutral">РЫНОК СТАБИЛЕН</div>
+                    <p id="news-signal-text">На рынке затишье перед открытием новых технологических торгов...</p>
+                </div>
+
+                <div class="event-feed" id="event-feed">
+                    <div class="feed-item">[День 1] Компания открыта. Начните с найма первого специалиста!</div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Модальное окно случайного события -->
+        <div class="modal-overlay hidden" id="event-modal">
+            <div class="modal-card">
+                <span class="modal-badge">СРОЧНОЕ СОБЫТИЕ</span>
+                <h3 id="modal-title">Название события</h3>
+                <p id="modal-desc">Описание ситуации...</p>
+                <div class="modal-choices" id="modal-choices">
+                    <!-- Кнопки выбора действий -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
