@@ -727,6 +727,13 @@ body {
     font-size: 0.9rem;
 }
 
+label.setting-item {
+    cursor: pointer;
+}
+label.setting-item:hover {
+    background: #272f42;
+}
+
 .about-info p { margin-bottom: 10px; font-size: 0.88rem; }
 
 /* ==========================================================================
