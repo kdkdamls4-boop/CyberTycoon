@@ -727,6 +727,10 @@ body {
     font-size: 0.9rem;
 }
 
+.setting-item label {
+    cursor: pointer;
+}
+
 .about-info p { margin-bottom: 10px; font-size: 0.88rem; }
 
 /* ==========================================================================
