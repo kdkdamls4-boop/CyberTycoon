@@ -1,0 +1,3 @@
+## 2024-09-27 - Keyboard Navigation & Checkbox Accessibility
+**Learning:** Found that custom HTML forms/settings modals often missed semantic label associations `<label for="id">` making checkboxes hard to click and completely inaccessible to screen readers. Also, pure CSS focus indicators were missing across the app, making keyboard navigation impossible to track.
+**Action:** Implemented a global `:focus-visible` rule in `style.css` using existing theme variables, and wrapped settings inputs with proper `<label>` elements. Always check for proper semantic HTML associations and keyboard focus states when adding/reviewing interactive elements.
