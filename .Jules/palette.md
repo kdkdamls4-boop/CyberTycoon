@@ -1,0 +1,3 @@
+## 2024-03-24 - Accessibility improvements for Settings and Keyboard Navigation
+**Learning:** Using semantic `<label>` tags with `for` attributes instead of just plain text `<span>` tags drastically improves accessibility for settings checkboxes, allowing users to click the text to toggle the state. `:focus-visible` states are key for keyboard accessibility and using an offset avoids conflicting with component styling while providing clear feedback.
+**Action:** When implementing forms or settings, always use semantic `<label>` tags linked to their input fields via `for` and `id` attributes. Ensure all interactive elements like buttons and inputs have clear `:focus-visible` styles to support keyboard navigation.

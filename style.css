@@ -609,6 +609,13 @@ body {
     padding-left: 8px;
 }
 
+button:focus-visible,
+input:focus-visible,
+.tab-btn:focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 2px;
+}
+
 /* ==========================================================================
    7. КНОПКИ И МОДАЛЬНЫЕ ОКНА
    ========================================================================== */
