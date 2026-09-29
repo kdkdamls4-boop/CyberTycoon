@@ -925,3 +925,18 @@ body {
     transition: width 0.4s ease;
 }
 
+
+/* Улучшение доступности (Accessibility) */
+:focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+.btn:focus-visible,
+.menu-btn:focus-visible,
+.tab-btn:focus-visible {
+    border-radius: inherit;
+}
+.setting-item label {
+    cursor: pointer;
+}
