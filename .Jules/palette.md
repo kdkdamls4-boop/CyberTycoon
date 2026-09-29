@@ -1,0 +1,3 @@
+## 2024-05-24 - Settings Checkbox Usability and Keyboard Focus State
+**Learning:** In custom-themed interfaces (like this Cyberpunk Dashboard), native checkboxes can be hard to target, and default focus outlines are often removed or not visible against dark backgrounds. Using generic `<span>` elements for checkbox labels breaks standard accessibility and prevents users from toggling the setting by clicking the text.
+**Action:** Replaced `<span>` elements with proper `<label for="...">` associated with input IDs and explicitly added a `:focus-visible` outline utilizing the design system's highlight color (`--color-cyan`) to ensure focus states are accessible and labels expand the clickable hit area.
