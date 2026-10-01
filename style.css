@@ -622,6 +622,19 @@ body {
     transition: all 0.15s ease;
 }
 
+.btn:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 2px;
+}
+
+.btn:disabled,
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .btn-primary { background: var(--color-cyan); color: #fff; }
 .btn-primary:hover { filter: brightness(1.15); }
 
