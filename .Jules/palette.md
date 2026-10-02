@@ -1,0 +1,3 @@
+## 2024-05-18 - Keyboard Navigation Testing
+**Learning:** Programmatic focus via element.focus() does not reliably trigger `:focus-visible` pseudo-class in browsers/Playwright. Visual focus is often decoupled from actual DOM focus unless a user explicitly navigates via a keyboard interface.
+**Action:** When visually verifying `:focus-visible` UI states in Playwright, explicitly simulate keyboard navigation (e.g., `page.keyboard.press('Tab')`) rather than relying on programmatically focusing locators.
