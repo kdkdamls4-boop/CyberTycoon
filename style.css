@@ -669,6 +669,9 @@ body {
     padding: 2px 8px;
     border-radius: 4px;
 }
+.setting-item label {
+    cursor: pointer;
+}
 
 .modal-card h3 { margin: 12px 0 8px 0; font-size: 1.25rem; }
 .modal-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px; }
